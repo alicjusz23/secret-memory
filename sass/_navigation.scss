@@ -1,0 +1,48 @@
+
+    .blog-masthead {
+        // background-color: blue;
+        background: url(./images/oranges.jpg) fixed center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 500px;
+    }
+
+    .blog-title {
+        font-size: 5em;
+        font-family: $title-font-family;
+        margin-top: 1em;
+
+        a {
+            color: rgb(169, 23, 10);
+            text-decoration: none;
+            text-shadow: 2px 2px black;
+        }
+    }
+
+    .blog-description {
+        font-size: 2em;
+        font-family: $title-font-family;
+        color: whitesmoke;
+    }
+
+    .blog-header-all {
+        text-align: center;
+    }
+
+    @mixin blog-nav-el {
+        display: inline-block;
+        margin: 0 1em 0 1em;
+        font-family: $title-font-family;
+        a {
+            color: yellowgreen;
+            text-decoration: none;
+        }
+    }
+
+    .blog-nav-item {
+        @include blog-nav-el;
+    }
+
+    .blog-nav li {
+        @include blog-nav-el;
+    }

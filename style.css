@@ -1,0 +1,154 @@
+/*
+Theme Name: Start Wordpress
+Author: alicjusz23
+*/
+@import url(https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap);
+/* line 5, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* line 22, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1; }
+
+/* line 24, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 26, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 28, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 30, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none; }
+  /* line 103, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+/* line 32, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none; }
+
+/* line 116, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/*_variables.scss */
+/* Body Text Styles */
+/*_typography.scss*/
+/* line 2, sass/typography/_typography.scss */
+body {
+  color: white;
+  font-size: 16px;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  line-height: 1.6; }
+
+/* line 10, sass/typography/_typography.scss */
+a {
+  color: orangered;
+  text-decoration: none; }
+
+/* line 15, sass/typography/_typography.scss */
+a:visited {
+  color: red; }
+
+/* line 19, sass/typography/_typography.scss */
+a:hover {
+  color: #d9ff00; }
+
+/* line 1, sass/layout/_layout.scss */
+.blog-main {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-color: #ffb222;
+  padding: 1.5em 2em;
+  border-radius: 35px; }
+
+/* line 9, sass/layout/_layout.scss */
+.blog-sidebar {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-color: #ffb222;
+  padding: 1em;
+  border-radius: 35px; }
+
+/* line 2, sass/_navigation.scss */
+.blog-masthead {
+  background: url(./images/oranges.jpg) fixed center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px; }
+
+/* line 10, sass/_navigation.scss */
+.blog-title {
+  font-size: 5em;
+  font-family: "Permanent Marker", cursive;
+  margin-top: 1em; }
+  /* line 15, sass/_navigation.scss */
+  .blog-title a {
+    color: #a9170a;
+    text-decoration: none;
+    text-shadow: 2px 2px black; }
+
+/* line 22, sass/_navigation.scss */
+.blog-description {
+  font-size: 2em;
+  font-family: "Permanent Marker", cursive;
+  color: whitesmoke; }
+
+/* line 28, sass/_navigation.scss */
+.blog-header-all {
+  text-align: center; }
+
+/* line 42, sass/_navigation.scss */
+.blog-nav-item {
+  display: inline-block;
+  margin: 0 1em 0 1em;
+  font-family: "Permanent Marker", cursive; }
+  /* line 36, sass/_navigation.scss */
+  .blog-nav-item a {
+    color: yellowgreen;
+    text-decoration: none; }
+
+/* line 46, sass/_navigation.scss */
+.blog-nav li {
+  display: inline-block;
+  margin: 0 1em 0 1em;
+  font-family: "Permanent Marker", cursive; }
+  /* line 36, sass/_navigation.scss */
+  .blog-nav li a {
+    color: yellowgreen;
+    text-decoration: none; }
+
+/* line 1, sass/_footer.scss */
+.blog-footer {
+  background-color: orange;
+  text-align: center;
+  padding: 1.5em 0 1.5em 0; }

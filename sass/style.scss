@@ -1,0 +1,18 @@
+/*
+Theme Name: Start Wordpress
+Author: alicjusz23
+*/
+ 
+@import "compass";
+@import "compass/reset";
+
+
+@import "variables/variables";
+
+@import "typography/typography";
+
+@import "layout/layout";
+
+@import "navigation";
+
+@import "footer";
