@@ -9,37 +9,49 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="<?php echo get_bloginfo('template_directory'); ?>/blog.css" rel="stylesheet"> -->
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title><?php wp_title(); echo " | "; echo bloginfo('name');?></title>
   <?php wp_head(); ?>
   </head>
-
   <body>
 
+  <div class="skip-div">
+    <a class="skip-link" href="#footer">Skip to content</a>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" id="menuCloseButton">&times</a>
+    <div class="overlayContent">
+      
+      <nav class="blog-nav">
+        <a class="blog-nav-item" href="/">Home</a>
+        <?php wp_list_pages( '&title_li=' ); ?>
+      </nav>
+    </div>
+  </div>
+
+
     <div class="blog-masthead">
+      <nav class="navbar navbar-inverse myNavbar">
+        <div class="container-fluid">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" id="menuButton" class="myButton">
+                <div class="icon-bar1"></div>
+                <div class="icon-bar2"></div>
+                <div class="icon-bar3"></div> 
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
       <div class="container blog-header-all">
         <div class="blog-header">
           <h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
           <p class="blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
         </div>
-        <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">Home</a>
-          <?php wp_list_pages( '&title_li=' ); ?>
-        </nav>
       </div>
     </div>
 
     <div class="container">
+      <main id="content">
 

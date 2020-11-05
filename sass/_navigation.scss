@@ -1,7 +1,7 @@
 
     .blog-masthead {
         // background-color: blue;
-        background: url(./images/oranges.jpg) fixed center;
+        background: url(./images/pen.jpg) fixed center;
         background-size: cover;
         background-attachment: fixed;
         height: 500px;
@@ -10,39 +10,112 @@
     .blog-title {
         font-size: 5em;
         font-family: $title-font-family;
-        margin-top: 1em;
+        margin-top: 175px;
 
         a {
-            color: rgb(169, 23, 10);
+            color: $green-color;
             text-decoration: none;
-            text-shadow: 2px 2px black;
+            // text-shadow: 2px 2px black;
         }
     }
 
     .blog-description {
         font-size: 2em;
         font-family: $title-font-family;
-        color: whitesmoke;
+        color: $green-color;
+        // text-shadow: 2px 2px black;
+    }
+
+    .blog-header {
+        background-color: rgba(245, 245, 245, 0.4);
     }
 
     .blog-header-all {
         text-align: center;
     }
 
-    @mixin blog-nav-el {
-        display: inline-block;
-        margin: 0 1em 0 1em;
-        font-family: $title-font-family;
+    .myNavbar {
+        background-color: transparent;
+        border: none;
+    }
+
+    .navbar-header {
+        margin-top: 20px;
+    }
+
+    .myButton {
+        background-color: transparent;
+        border: none;
+    }
+
+    .icon-bar1, .icon-bar2, .icon-bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: $black-color;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background-color: $black-color-shadow;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .overlayContent {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a {
+        text-decoration: none;
+        font-size: 36px;
+        color: $pink-color;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay li {
+        list-style: none;
+    }
+
+    #menuCloseButton {
+        position: absolute;
+        top: -5px;
+        left: 26px;
+        font-size: 60px;
+    }
+
+    #menuCloseButton:hover, #menuCloseButton:focus {
+        color: $green-color-dark !important;
+    }
+
+    .skip-link {
+        background-color: $black-color;
+        padding: 0.1em 0.5em;
+    }
+
+    .skip-div {
+        position: absolute;
+        z-index: 1;
+        right: 0px;
+    }
+
+
+    .blog-nav { 
         a {
-            color: yellowgreen;
-            text-decoration: none;
+            padding: 8px;
         }
-    }
-
-    .blog-nav-item {
-        @include blog-nav-el;
-    }
-
-    .blog-nav li {
-        @include blog-nav-el;
+        a:focus, a:hover {
+            color: $green-color-dark !important;
+        }
     }

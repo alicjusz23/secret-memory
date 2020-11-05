@@ -1,9 +1,27 @@
 /*_variables.scss */
 /* Body Text Styles */
 $text-color: white;
+$blue-color: rgb(99, 195, 211);
+$white-color: white;
+$pink-color: rgba(240, 192, 140, 0.8);
+$pink-color-light: rgb(240, 192, 140);
+$green-color: rgb(139, 162, 32);
+$green-color-dark: rgb(120, 141, 32);
+$green-color-light: rgb(154, 180, 37);
+$green-color-lighter: rgb(165, 187, 70);
+$green-color-shadow: rgba(154, 180, 37, 0.7);
+$grey-color: rgba(207, 207, 207, 0.2);
+$grey-color-darker: rgba(215, 215, 215, 0.5);
+$black-color-shadow: rgba(9, 6, 23, 0.97);
+$black-color: rgb(9, 6, 23);
+$black-color-lighter: rgba(9, 6, 23, 0.8);
+// $back-color: rgb(109, 200, 2019);
 $base-font-size: 16px;
-$base-font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
+// $base-font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
 $base-font-weight: 400;
 
-@import url(https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap);
-$title-font-family: 'Permanent Marker', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+$title-font-family: 'Cinzel', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+$base-font-family: 'Nanum Myeongjo', serif;

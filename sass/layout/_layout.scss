@@ -1,15 +1,256 @@
-.blog-main {
+@mixin text-areas {
     margin-top: 2em;
     margin-bottom: 2em;
-    background-color: rgb(255, 178, 34);
     padding: 1.5em 2em;
-    border-radius: 35px;
 }
 
-.blog-sidebar {
+.blog-main {
+    @include text-areas;
+}
+
+.blog-section {
+    @include text-areas;
+    font-size: large;
+    color: $black-color;
+    border: thin $green-color-light solid;
+    background-color: $grey-color;
+    border-radius: 2px;
+}
+
+.sidebar {
+    margin: 3.5em 0;
+    padding: 1.5em 2em;
+    background-color: $grey-color;
+    border: thin $green-color-light solid;
+    border-radius: 2px;
+}
+
+#searchsubmit {
+    background-color: $black-color;
+    color: $white-color;
+    width: 100%;
+    border: $black-color thin solid;
+    outline: none;
+}
+
+#searchsubmit:hover {
+    background-color: $black-color-lighter;
+}
+
+#searchsubmit:focus {
+    border: $green-color thin solid;
+}
+
+
+.searchform {
+    #s {
+        color: $black-color;
+        margin: 0.5em 0;
+        width: 100%;
+    }
+
+    label {
+        font-size: large;
+        color: $green-color;
+    }
+}
+
+.sidebar-search {
     margin-top: 2em;
-    margin-bottom: 2em;
-    background-color: rgb(255, 178, 34);
-    padding: 1em;
-    border-radius: 35px;
+    color: $black-color;
+}
+
+.sidebar-tags {
+    margin-top: 3em;
+    color: $black-color;
+    text-align: center;
+}
+
+h1 {
+    font-size: 250%;
+    font-weight: 700;
+    color: $green-color;
+}
+
+h2 {
+    font-size: xx-large;
+    font-weight: 700;
+    color: $green-color;
+}
+
+h3 {
+    font-size: x-large;
+    font-weight: 700;
+    color: $green-color;
+}
+
+h4 {
+    color: $green-color;
+    font-size: medium;
+}
+
+h5 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: $green-color;
+}
+
+a {
+    color: $green-color;
+}
+
+a:active, a:hover, a:focus {
+    color: $green-color-lighter;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+////////////// POST //////////////
+
+.blog-excerpt {
+    margin: 0.5em 0;
+}
+
+.wp-post-image {
+    border: thin $green-color-light solid;
+    border-radius: 1px;
+    padding: 0.2em;
+    background-color: $grey-color-darker;
+}
+
+.blog-post-meta-main {
+    font-size: 1.2em;
+}
+
+.thumbmnail-home {
+    transition: transform 2s;
+}
+
+.thumbmnail-home:hover {
+    transform: scale(0.95);
+}
+
+.post-text-main {
+    font-size: large;
+}
+
+.post-content-main {
+    text-align: center;
+}
+
+.blog-post-main {
+    @include text-areas;
+    background-color: $pink-color;
+}
+
+.post-text {
+    h2, h3, h4, h5 {
+        margin-top: 1em;
+    }
+}
+
+
+////////////// 404 //////////////
+
+.p404 {
+    background-color: $pink-color;
+    margin: 4em;
+    padding: 4em;
+    text-align: center;
+}
+
+.p404-description{
+    margin: 2em;
+}
+
+
+////////////// MAIN //////////////
+
+#about-main {
+    background-color: $pink-color;
+    margin: 2em;
+    padding: 2em;
+}
+
+#categories-main {
+    padding: 1em 2em;
+}
+
+.category-img {
+    height: 400px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.panel {
+    background-color: $grey-color;
+    border: thin solid $green-color-shadow;
+    color: black;
+}
+
+.cat-panel {    
+    padding: 15px 10px;
+}
+
+@mixin categories-img {
+    background-size: cover;
+    height: 400px;
+    max-width: 100%;
+    margin: 5px;
+    display: block;
+}
+
+.cat-panel > .first {
+    @include categories-img();
+    background-image: url(./images/notes.jpg);
+    filter: opacity(65%);
+    transition: transform 2s;
+}
+
+.cat-panel > .second {
+    @include categories-img();
+    background-image: url(./images/bed.jpg);
+    filter: opacity(70%);
+    transition: transform 2s;
+}
+
+.cat-panel > .third {
+    @include categories-img();
+    background-image: url(./images/outside.jpg);
+    filter: opacity(40%);
+    transition: transform 2s;
+}
+
+.cat-panel > .first:hover,
+.cat-panel > .second:hover,
+.cat-panel > .third:hover
+{
+    transform: scale(1.1);
+}
+
+
+.cat-panel >  p {
+    position: absolute;
+    // display: inline-block;
+    top: 300px;
+    left: 50%;
+    font-size: xx-large;
+}
+
+.cat-panel > p > a {
+    color: $black-color;
+    margin-left: -50%;
+}
+
+.cat-panel > p > a:hover {
+    text-decoration: none;
+    color: rgb(88, 88, 88);
+    cursor: pointer;
+}
+
+.read-more {
+    padding: 10px 0;
 }

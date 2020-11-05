@@ -1,0 +1,60 @@
+.blog-post {
+    padding: 2em 6em 3em 6em;
+    margin: 2em 2em;
+    background-color: $pink-color;
+}
+
+.blog-post-info {
+    margin: 1em 0;
+}
+
+.post-text {
+    margin: 1em 0;
+    font-size: large;
+}
+
+.blog-post-meta {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.wp-post-image {
+    // transition: filter 2s, transform 2s;
+    transition: transform 2s;
+    margin: 0.5em;
+}
+
+.post-image {
+    text-align: center;
+}
+
+.wp-post-image:hover {
+    //filter: sepia(90%);
+    transform: scale(0.95);
+}
+
+.post-content {
+    text-align: justify;
+}
+
+.blog-post-meta-bottom {
+    text-align: center;
+    font-size: medium;
+    font-style: italic;
+    margin: 3em 0 1em 0;
+}
+
+.thumbmnail-home img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-excerpt {
+    text-align: justify;
+}
+
+
+////////////* GALLERY */////////////
+.blocks-gallery-item > figure > a > img:hover {
+    filter: saturate(130%);
+}

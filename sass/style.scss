@@ -1,6 +1,16 @@
 /*
-Theme Name: Start Wordpress
+Theme Name: My Secret Memory
 Author: alicjusz23
+Description: A short description of the theme.
+Version: 1.0
+Requires at least: 4.9.6
+Requires PHP: 5.2.4
+Version: 1.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: The last main WordPress version the theme has been tested up to, i.e. 5.4. Write only the number.
+Text Domain: The string used for textdomain for translation.
+Tags: blog, news, two-columns, right-sidebar, featured-images, threaded-comments
 */
  
 @import "compass";
@@ -12,7 +22,12 @@ Author: alicjusz23
 @import "typography/typography";
 
 @import "layout/layout";
+@import "layout/comments";
+@import "layout/post";
+@import "layout/loader-ellips";
 
 @import "navigation";
 
 @import "footer";
+
+@import "font-awesome-4.7.0/scss/font-awesome";

@@ -2,20 +2,20 @@
 body {
     color: $text-color;
     font-size: $base-font-size;
-    font-family:$title-font-family;
+    font-family:$base-font-family;
     font-weight: $base-font-weight;
     line-height: 1.6;
 }
 
 a {
-    color: orangered;
+    color: $blue-color;
     text-decoration: none;
 }
 
 a:visited {
-    color: red;
+    color: $green-color;
 }
 
 a:hover {
-    color: rgb(217, 255, 0);
+    color: $blue-color;
 }
