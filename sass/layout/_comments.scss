@@ -8,7 +8,6 @@
     padding: 1.5em 2em;
     width: 50%;
     background-color: $pink-color;
-    font-weight: 800;
     text-align: center;
     color: $white-color;
 }
@@ -169,4 +168,32 @@ img.avatar {
 .comment-not-approved {
     font-style: italic;
     font-size: small;
+}
+
+
+///////// RECENT COMMENTS ////////////
+
+.recent-com-div {
+    background-color: $pink-color;
+    padding: 1em 2.5em;
+    margin-top: 1em;
+    // margin: 2em;
+}
+
+.recent-com-li {
+    list-style-type: none;
+    margin: 1.5em 0;
+}
+
+.recent-com-avatar {
+    margin-right: 1em;
+    display: inline-block;
+}
+
+.span-larger-text {
+    font-size: larger;
+}
+
+.green-text {
+    color: $green-color;
 }

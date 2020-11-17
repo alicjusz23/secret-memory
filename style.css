@@ -10,11 +10,12 @@ Version: 1.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: The last main WordPress version the theme has been tested up to, i.e. 5.4. Write only the number.
-Text Domain: The string used for textdomain for translation.
+Text Domain: my-secret-memory
 Tags: blog, news, two-columns, right-sidebar, featured-images, threaded-comments
 */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 /* line 5, ../../../../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -74,38 +75,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*_variables.scss */
 /* Body Text Styles */
 /*_typography.scss*/
-/* line 2, sass/typography/_typography.scss */
+/* line 13, sass/typography/_typography.scss */
+.text-italic {
+  font-style: italic; }
+
+/* line 17, sass/typography/_typography.scss */
 body {
   color: white;
   font-size: 16px;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "Tinos", serif;
   font-weight: 400;
   line-height: 1.6; }
 
-/* line 10, sass/typography/_typography.scss */
-a {
-  color: #63c3d3;
-  text-decoration: none; }
-
-/* line 15, sass/typography/_typography.scss */
+/* line 30, sass/typography/_typography.scss */
 a:visited {
   color: #8ba220; }
-
-/* line 19, sass/typography/_typography.scss */
-a:hover {
-  color: #63c3d3; }
 
 /* line 7, sass/layout/_layout.scss */
 .blog-main {
   margin-top: 2em;
   margin-bottom: 2em;
-  padding: 1.5em 2em; }
+  padding: 2.5em 3em; }
 
 /* line 11, sass/layout/_layout.scss */
 .blog-section {
   margin-top: 2em;
   margin-bottom: 2em;
-  padding: 1.5em 2em;
+  padding: 2.5em 3em;
   font-size: large;
   color: #090617;
   border: thin #9ab425 solid;
@@ -160,125 +156,124 @@ a:hover {
 /* line 69, sass/layout/_layout.scss */
 h1 {
   font-size: 250%;
-  font-weight: 700;
+  font-weight: 500;
   color: #8ba220; }
 
 /* line 75, sass/layout/_layout.scss */
 h2 {
   font-size: xx-large;
-  font-weight: 700;
+  font-weight: 500;
   color: #8ba220; }
 
 /* line 81, sass/layout/_layout.scss */
 h3 {
   font-size: x-large;
-  font-weight: 700;
+  font-weight: 500;
   color: #8ba220; }
 
 /* line 87, sass/layout/_layout.scss */
 h4 {
   color: #8ba220;
+  font-weight: 500;
   font-size: medium; }
 
-/* line 92, sass/layout/_layout.scss */
+/* line 93, sass/layout/_layout.scss */
 h5 {
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 500;
   color: #8ba220; }
 
-/* line 98, sass/layout/_layout.scss */
+/* line 99, sass/layout/_layout.scss */
 a {
-  color: #8ba220; }
+  color: #8ba220;
+  font-weight: 400; }
 
-/* line 102, sass/layout/_layout.scss */
+/* line 104, sass/layout/_layout.scss */
 a:active, a:hover, a:focus {
   color: #a5bb46;
   outline: none; }
 
-/* line 107, sass/layout/_layout.scss */
+/* line 109, sass/layout/_layout.scss */
 html {
   scroll-behavior: smooth; }
 
-/* line 113, sass/layout/_layout.scss */
-.blog-excerpt {
-  margin: 0.5em 0; }
-
-/* line 117, sass/layout/_layout.scss */
+/* line 115, sass/layout/_layout.scss */
 .wp-post-image {
   border: thin #9ab425 solid;
   border-radius: 1px;
   padding: 0.2em;
-  background-color: rgba(215, 215, 215, 0.5); }
+  background-color: rgba(215, 215, 215, 0.5);
+  margin-top: 1.5em; }
 
-/* line 124, sass/layout/_layout.scss */
+/* line 125, sass/layout/_layout.scss */
 .blog-post-meta-main {
   font-size: 1.2em; }
 
-/* line 128, sass/layout/_layout.scss */
-.thumbmnail-home {
-  transition: transform 2s; }
-
-/* line 132, sass/layout/_layout.scss */
-.thumbmnail-home:hover {
-  transform: scale(0.95); }
-
-/* line 136, sass/layout/_layout.scss */
+/* line 137, sass/layout/_layout.scss */
 .post-text-main {
   font-size: large; }
 
-/* line 140, sass/layout/_layout.scss */
+/* line 141, sass/layout/_layout.scss */
 .post-content-main {
   text-align: center; }
 
-/* line 144, sass/layout/_layout.scss */
+/* line 145, sass/layout/_layout.scss */
 .blog-post-main {
   margin-top: 2em;
   margin-bottom: 2em;
-  padding: 1.5em 2em;
-  background-color: rgba(240, 192, 140, 0.8); }
+  padding: 2.5em 3em;
+  background-color: rgba(240, 192, 140, 0.95); }
 
 /* line 150, sass/layout/_layout.scss */
+.blog-post-excerpt {
+  padding: 2.5em 7em 2.5em 6em;
+  margin: 2em 1em 2em 0;
+  background-color: rgba(240, 192, 140, 0.95); }
+  /* line 155, sass/layout/_layout.scss */
+  .blog-post-excerpt .blog-excerpt {
+    padding: 0 0 0 2em; }
+
+/* line 161, sass/layout/_layout.scss */
 .post-text h2, .post-text h3, .post-text h4, .post-text h5 {
   margin-top: 1em; }
 
-/* line 158, sass/layout/_layout.scss */
+/* line 169, sass/layout/_layout.scss */
 .p404 {
-  background-color: rgba(240, 192, 140, 0.8);
+  background-color: rgba(240, 192, 140, 0.95);
   margin: 4em;
   padding: 4em;
   text-align: center; }
 
-/* line 165, sass/layout/_layout.scss */
+/* line 176, sass/layout/_layout.scss */
 .p404-description {
   margin: 2em; }
 
-/* line 172, sass/layout/_layout.scss */
-#about-main {
-  background-color: rgba(240, 192, 140, 0.8);
+/* line 183, sass/layout/_layout.scss */
+#recent-comments {
   margin: 2em;
-  padding: 2em; }
+  padding: 2.5em 0; }
 
-/* line 178, sass/layout/_layout.scss */
+/* line 188, sass/layout/_layout.scss */
 #categories-main {
   padding: 1em 2em; }
 
-/* line 182, sass/layout/_layout.scss */
+/* line 192, sass/layout/_layout.scss */
 .category-img {
   height: 400px;
   max-width: 100%;
   object-fit: cover; }
 
-/* line 188, sass/layout/_layout.scss */
+/* line 198, sass/layout/_layout.scss */
 .panel {
   background-color: rgba(207, 207, 207, 0.2);
   border: thin solid rgba(154, 180, 37, 0.7);
   color: black; }
 
-/* line 194, sass/layout/_layout.scss */
+/* line 204, sass/layout/_layout.scss */
 .cat-panel {
   padding: 15px 10px; }
 
-/* line 206, sass/layout/_layout.scss */
+/* line 216, sass/layout/_layout.scss */
 .cat-panel > .first {
   background-size: cover;
   height: 400px;
@@ -289,7 +284,7 @@ html {
   filter: opacity(65%);
   transition: transform 2s; }
 
-/* line 213, sass/layout/_layout.scss */
+/* line 223, sass/layout/_layout.scss */
 .cat-panel > .second {
   background-size: cover;
   height: 400px;
@@ -300,7 +295,7 @@ html {
   filter: opacity(70%);
   transition: transform 2s; }
 
-/* line 220, sass/layout/_layout.scss */
+/* line 230, sass/layout/_layout.scss */
 .cat-panel > .third {
   background-size: cover;
   height: 400px;
@@ -311,33 +306,36 @@ html {
   filter: opacity(40%);
   transition: transform 2s; }
 
-/* line 227, sass/layout/_layout.scss */
+/* line 237, sass/layout/_layout.scss */
 .cat-panel > .first:hover,
 .cat-panel > .second:hover,
 .cat-panel > .third:hover {
   transform: scale(1.1); }
 
-/* line 235, sass/layout/_layout.scss */
-.cat-panel > p {
+/* line 245, sass/layout/_layout.scss */
+.cat-panel > .cat-panel-text {
   position: absolute;
-  top: 300px;
-  left: 50%;
-  font-size: xx-large; }
+  font-size: 2em;
+  top: 270px;
+  width: calc(100% - 50px);
+  padding: 0 0.2em;
+  height: 5em;
+  text-align: center;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden; }
 
-/* line 243, sass/layout/_layout.scss */
-.cat-panel > p > a {
-  color: #090617;
-  margin-left: -50%; }
+/* line 261, sass/layout/_layout.scss */
+a > .cat-panel {
+  color: #090617; }
 
-/* line 248, sass/layout/_layout.scss */
-.cat-panel > p > a:hover {
+/* line 265, sass/layout/_layout.scss */
+a:hover > .cat-panel {
   text-decoration: none;
-  color: #585858;
+  color: rgba(215, 215, 215, 0.5);
   cursor: pointer; }
-
-/* line 254, sass/layout/_layout.scss */
-.read-more {
-  padding: 10px 0; }
 
 /* line 3, sass/layout/_comments.scss */
 #comment_form {
@@ -347,33 +345,32 @@ html {
   margin-right: auto;
   padding: 1.5em 2em;
   width: 50%;
-  background-color: rgba(240, 192, 140, 0.8);
-  font-weight: 800;
+  background-color: rgba(240, 192, 140, 0.95);
   text-align: center;
   color: white; }
 
-/* line 16, sass/layout/_comments.scss */
+/* line 15, sass/layout/_comments.scss */
 ::placeholder {
   color: rgba(154, 180, 37, 0.7);
   opacity: 1; }
 
-/* line 21, sass/layout/_comments.scss */
+/* line 20, sass/layout/_comments.scss */
 :-ms-input-placeholder {
   color: rgba(154, 180, 37, 0.7); }
 
-/* line 25, sass/layout/_comments.scss */
+/* line 24, sass/layout/_comments.scss */
 ::-ms-input-placeholder {
   color: rgba(154, 180, 37, 0.7); }
 
-/* line 29, sass/layout/_comments.scss */
+/* line 28, sass/layout/_comments.scss */
 .comment-respond {
   margin-top: 1em; }
 
-/* line 33, sass/layout/_comments.scss */
+/* line 32, sass/layout/_comments.scss */
 .comment-form > p {
   margin: 10px; }
 
-/* line 37, sass/layout/_comments.scss */
+/* line 36, sass/layout/_comments.scss */
 input[type=text], input[type=email], textarea {
   width: 85%;
   border-style: solid;
@@ -384,23 +381,23 @@ input[type=text], input[type=email], textarea {
   color: white;
   font-size: large; }
 
-/* line 48, sass/layout/_comments.scss */
+/* line 47, sass/layout/_comments.scss */
 textarea:focus, input:focus {
   outline: none;
   border-color: #788d20; }
 
-/* line 53, sass/layout/_comments.scss */
+/* line 52, sass/layout/_comments.scss */
 textarea {
   padding: 10px;
   resize: none;
   border-radius: 1%; }
 
-/* line 59, sass/layout/_comments.scss */
+/* line 58, sass/layout/_comments.scss */
 input[type=text], input[type=email] {
   padding: 5px;
   border-radius: 2%; }
 
-/* line 64, sass/layout/_comments.scss */
+/* line 63, sass/layout/_comments.scss */
 input#submit {
   margin: 5px;
   width: 85%;
@@ -411,20 +408,20 @@ input#submit {
   background-color: #090617;
   color: white; }
 
-/* line 75, sass/layout/_comments.scss */
+/* line 74, sass/layout/_comments.scss */
 input#submit:hover {
   background-color: rgba(9, 6, 23, 0.8); }
 
-/* line 79, sass/layout/_comments.scss */
+/* line 78, sass/layout/_comments.scss */
 input#submit:focus {
   border: #8ba220 thin solid; }
 
-/* line 83, sass/layout/_comments.scss */
+/* line 82, sass/layout/_comments.scss */
 input[type=checkbox] {
   position: absolute;
   opacity: 0; }
 
-/* line 88, sass/layout/_comments.scss */
+/* line 87, sass/layout/_comments.scss */
 #check {
   height: 15px;
   width: 15px;
@@ -432,11 +429,11 @@ input[type=checkbox] {
   display: inline-block;
   position: relative; }
 
-/* line 96, sass/layout/_comments.scss */
+/* line 95, sass/layout/_comments.scss */
 .check-focus {
   border-color: #788d20 !important; }
 
-/* line 100, sass/layout/_comments.scss */
+/* line 99, sass/layout/_comments.scss */
 input[type=checkbox]:checked + #check:before {
   content: '\2714';
   position: absolute;
@@ -444,28 +441,28 @@ input[type=checkbox]:checked + #check:before {
   left: 0;
   color: #9ab425; }
 
-/* line 111, sass/layout/_comments.scss */
+/* line 110, sass/layout/_comments.scss */
 .comments {
   margin: 0 2em; }
 
-/* line 115, sass/layout/_comments.scss */
+/* line 114, sass/layout/_comments.scss */
 .comment-list {
   color: #090617; }
 
-/* line 119, sass/layout/_comments.scss */
+/* line 118, sass/layout/_comments.scss */
 a.comment-reply-link, a.reply {
   color: #8ba220;
   font-size: small; }
 
-/* line 125, sass/layout/_comments.scss */
+/* line 124, sass/layout/_comments.scss */
 a.comment-reply-link:hover, a.reply:hover {
   color: #9ab425; }
 
-/* line 129, sass/layout/_comments.scss */
+/* line 128, sass/layout/_comments.scss */
 .comment-text {
   margin: 10px 0; }
 
-/* line 133, sass/layout/_comments.scss */
+/* line 132, sass/layout/_comments.scss */
 .single-comment {
   background-color: rgba(207, 207, 207, 0.2);
   border: thin solid rgba(154, 180, 37, 0.7);
@@ -476,39 +473,63 @@ a.comment-reply-link:hover, a.reply:hover {
   padding: 1.5em;
   margin: 5px; }
 
-/* line 145, sass/layout/_comments.scss */
+/* line 144, sass/layout/_comments.scss */
 i.fa.icomment {
   font-size: 1em;
   margin: 0 5px; }
 
-/* line 150, sass/layout/_comments.scss */
+/* line 149, sass/layout/_comments.scss */
 time, .activ-com {
   font-size: small;
   font-style: italic; }
 
-/* line 155, sass/layout/_comments.scss */
+/* line 154, sass/layout/_comments.scss */
 .container.comments-container {
   width: inherit; }
 
-/* line 159, sass/layout/_comments.scss */
+/* line 158, sass/layout/_comments.scss */
 .comment.depth-2, .comment.depth-3 {
   margin-left: 70px; }
 
-/* line 163, sass/layout/_comments.scss */
+/* line 162, sass/layout/_comments.scss */
 img.avatar {
   margin-top: 5px;
   margin-left: -5px; }
 
-/* line 169, sass/layout/_comments.scss */
+/* line 168, sass/layout/_comments.scss */
 .comment-not-approved {
   font-style: italic;
   font-size: small; }
+
+/* line 176, sass/layout/_comments.scss */
+.recent-com-div {
+  background-color: rgba(240, 192, 140, 0.95);
+  padding: 1em 2.5em;
+  margin-top: 1em; }
+
+/* line 183, sass/layout/_comments.scss */
+.recent-com-li {
+  list-style-type: none;
+  margin: 1.5em 0; }
+
+/* line 188, sass/layout/_comments.scss */
+.recent-com-avatar {
+  margin-right: 1em;
+  display: inline-block; }
+
+/* line 193, sass/layout/_comments.scss */
+.span-larger-text {
+  font-size: larger; }
+
+/* line 197, sass/layout/_comments.scss */
+.green-text {
+  color: #8ba220; }
 
 /* line 1, sass/layout/_post.scss */
 .blog-post {
   padding: 2em 6em 3em 6em;
   margin: 2em 2em;
-  background-color: rgba(240, 192, 140, 0.8); }
+  background-color: rgba(240, 192, 140, 0.95); }
 
 /* line 7, sass/layout/_post.scss */
 .blog-post-info {
@@ -524,40 +545,37 @@ img.avatar {
   font-size: 1.1em;
   font-style: italic; }
 
-/* line 21, sass/layout/_post.scss */
-.wp-post-image {
-  transition: transform 2s;
-  margin: 0.5em; }
-
-/* line 27, sass/layout/_post.scss */
+/* line 26, sass/layout/_post.scss */
 .post-image {
   text-align: center; }
 
-/* line 31, sass/layout/_post.scss */
-.wp-post-image:hover {
-  transform: scale(0.95); }
-
-/* line 36, sass/layout/_post.scss */
+/* line 35, sass/layout/_post.scss */
 .post-content {
   text-align: justify; }
 
-/* line 40, sass/layout/_post.scss */
+/* line 39, sass/layout/_post.scss */
 .blog-post-meta-bottom {
   text-align: center;
   font-size: medium;
   font-style: italic;
   margin: 3em 0 1em 0; }
 
-/* line 47, sass/layout/_post.scss */
+/* line 46, sass/layout/_post.scss */
 .thumbmnail-home img {
+  margin: 1.5em 1em 0 0;
   width: 100%;
   height: auto; }
 
 /* line 52, sass/layout/_post.scss */
 .blog-excerpt {
-  text-align: justify; }
+  text-align: justify;
+  margin: 1.5em 0; }
 
-/* line 58, sass/layout/_post.scss */
+/* line 57, sass/layout/_post.scss */
+.excerpt-tags {
+  margin-top: 1em; }
+
+/* line 63, sass/layout/_post.scss */
 .blocks-gallery-item > figure > a > img:hover {
   filter: saturate(130%); }
 
@@ -646,7 +664,7 @@ img.avatar {
 
 /* line 29, sass/_navigation.scss */
 .blog-header {
-  background-color: rgba(245, 245, 245, 0.4); }
+  background-color: rgba(245, 245, 245, 0.6); }
 
 /* line 33, sass/_navigation.scss */
 .blog-header-all {
@@ -698,7 +716,7 @@ img.avatar {
 .overlay a {
   text-decoration: none;
   font-size: 36px;
-  color: rgba(240, 192, 140, 0.8);
+  color: rgba(240, 192, 140, 0.95);
   display: block;
   transition: 0.3s; }
 
@@ -708,7 +726,7 @@ img.avatar {
 
 /* line 91, sass/_navigation.scss */
 #menuCloseButton {
-  position: absolute;
+  position: relative;
   top: -5px;
   left: 26px;
   font-size: 60px; }

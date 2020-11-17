@@ -1,6 +1,6 @@
 <?php
     // Add scripts and stylesheets
-    function startwordpress_scripts() {
+    function mysecretmemory_scripts() {
         wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
         // wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
         wp_enqueue_style('style', get_template_directory_uri() . '/style.css' );
@@ -11,15 +11,15 @@
 
     }
 
-    add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
+    add_action( 'wp_enqueue_scripts', 'mysecretmemory_scripts' );
 
 
-    function startwordpress_google_fonts() {
-        wp_register_style('OpenSans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
-        wp_enqueue_style( 'OpenSans');
-    }
+    // function startwordpress_google_fonts() {
+    //     wp_register_style('OpenSans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+    //     wp_enqueue_style( 'OpenSans');
+    // }
     
-    add_action('wp_print_styles', 'startwordpress_google_fonts');
+    // add_action('wp_print_styles', 'startwordpress_google_fonts');
 
     // WordPress Titles
     add_theme_support('title-tag');
@@ -27,20 +27,20 @@
     // Support Featured Images
     add_theme_support( 'post-thumbnails' );
     
-    // Custom comment walker.
-    require get_template_directory() . '/classes/class-startwordpress-walker-comment.php';
+    // Comment walker.
+    require get_template_directory() . '/classes/class-mysecretmemory-walker-comment.php';
 
 
-    function custom_settings_add_menu(){
-        add_menu_page('Theme Settings', 'Theme Settings', 'manage_options', 'custom-settings', 'custom_settings_page', null, 99 );
+    function mysecretmemory_settings_add_menu(){
+        add_menu_page(__("Theme Settings", 'my-secret-memory'), __("Theme Settings", 'my-secret-memory'), 'manage_options', 'custom-settings', 'mysecretmemory_settings_page', null, 99 );
     }
 
-    add_action( 'admin_menu', 'custom_settings_add_menu' );
+    add_action( 'admin_menu', 'mysecretmemory_settings_add_menu' );
 
 
-    function custom_settings_page(){ ?>
+    function mysecretmemory_settings_page(){ ?>
         <div class="wrap">
-            <h1>Custom Settings</h1>
+            <h1><?php _e("Theme Settings", 'my-secret-memory') ?></h1>
             <form method="post" action="options.php">
                 <?php
                     settings_fields('section');
@@ -72,8 +72,8 @@
     <?php 
     }
 
-    function custom_settings_page_setup(){
-        add_settings_section('section', 'All Settings', null, 'theme-options');
+    function mysecretmemory_settings_page_setup(){
+        add_settings_section('section', __('Social media', 'my-secret-memory'), null, 'theme-options');
         add_settings_field('twitter', 'Twitter URL', 'setting_twitter', 'theme-options', 'section');
         add_settings_field('facebook', 'Facebook URL', 'setting_facebook', 'theme-options', 'section');
         add_settings_field('instagram', 'Instagram URL', 'setting_instagram', 'theme-options', 'section');
@@ -84,7 +84,17 @@
         register_setting('section', 'pinterest');
     }
 
-    add_action('admin_init', 'custom_settings_page_setup');
+    add_action('admin_init', 'mysecretmemory_settings_page_setup');
+
+
+    function mysecretmemory_load_theme_textdomain() {
+        load_theme_textdomain('my-secret-memory', get_template_directory() . '/languages' );
+    }
+    add_action( 'after_setup_theme', 'mysecretmemory_load_theme_textdomain' );
+
+
+    //Notice: ob_end_flush(): failed to send buffer of zlib output compression - prevent this error
+    remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
 
 
     function get_previous_posts() {
@@ -94,12 +104,7 @@
         $current_post = $_POST['post'];
         $post = get_page_by_title($current_post, OBJECT, 'post');
         $post = get_previous_post();
-        // get_previous_post();
-        // the_post();
-        // $post = $oldGlobal;
-        //echo $post->post_author;
-        // get_template_part('content', get_post_format());
-        get_template_part('template-parts/content', 'excerpt');
+        get_template_part('template-parts/content', 'main');
         $html .= ob_get_contents();
         if(get_previous_post()){
             $prev=1;
@@ -123,8 +128,7 @@
         $current_post = $_POST['post'];
         $post = get_page_by_title($current_post, OBJECT, 'post');
         $post = get_next_post();
-        // get_template_part('content', get_post_format());
-        get_template_part('template-parts/content', 'excerpt');
+        get_template_part('template-parts/content', 'main');
         $html .= ob_get_contents();
         if(get_previous_post()){
             $prev=1;
@@ -153,8 +157,7 @@
         if($ajaxposts->have_posts()){
             while($ajaxposts->have_posts()){
                 $ajaxposts->the_post();
-                // get_template_part('content', get_post_format());
-                get_template_part('template-parts/content', 'excerpt');
+                get_template_part('template-parts/content', 'main');
                 $html .= ob_get_contents();
                 if(get_previous_post()){
                     $prev=1;
@@ -179,4 +182,8 @@
         wp_enqueue_script('post');
     }
     add_action('init', 'load_post_scripts');
+
+
+
+    require get_template_directory() . '/inc/template-tags.php';
 ?>

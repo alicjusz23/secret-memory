@@ -4,10 +4,11 @@ get_header();
 
 <div class="p404">
     <h2>
-        Ooops, something went wrong.
+        <?php _e("Ooops, something went wrong.", 'my-secret-memory'); ?>
     </h2>
     <div class="p404-description">
-        <p>This page is not available.</p><p> Why not going to the <a href="/">Home page</a>?</p>
+        <p><?php _e("This page is not available.", 'my-secret-memory'); ?></p>
+        <p><?php _e("Why not going to the", 'my-secret-memory'); ?> <a href="/"><?php _e("Home page", 'my-secret-memory'); ?></a>?</p>
     </div>
 </div>
 

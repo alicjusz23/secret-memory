@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-11-10 13:21:19+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"Language: pl_PL\n"
+"Project-Id-Version: WordPress - 5.5.x - Development\n"
+
+
+msgid "Home"
+msgstr "Strona główna"
+
+
+msgid " by "
+msgstr " przez "
+
+msgid " By "
+msgstr " "
+
+msgid "Posted on "
+msgstr "Opublikowano "
+
+msgid "Commented on "
+msgstr "Skomentował/a "
+
+msgid "Replied on "
+msgstr "Odpowiedział/a "
+
+msgid " (author)"
+msgstr " (autor)"
+
+
+#: comments.php:42
+msgid "Share your thoughts"
+msgstr "Podziel się swoimi przemyśleniami"
+
+msgid "Reply"
+msgstr "Odpowiedz"
+
+msgid "comments on  \""
+msgstr "komentarzy na temat \""
+
+msgid "%1$s comment on \"%2$s\""
+msgid_plural "%1$s comments on \"%2$s\""
+msgstr[0] "%1$s komentarz na temat \"%2$s\""
+msgstr[1] "%1$s komentarze na temat \"%2$s\""
+msgstr[2] "%1$s komentarzy na temat \"%2$s\""
+
+msgid "One Comment"
+msgid_plural "%s Comments"
+msgstr[0] "%s komentarz"
+msgstr[1] "%s komentarze"
+msgstr[2] "%s komentarzy"
+
+
+msgid "Your comment"
+msgstr "Twój komentarz"
+
+msgid "Name"
+msgstr "Imię"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Website"
+msgstr "Strona www"
+
+msgid " By commenting you accept the"
+msgstr " Komentując akceptujesz"
+
+msgid " Privacy Policy"
+msgstr " Politykę prywatności"
+
+
+msgid "New on the blog"
+msgstr "Nowości na blogu"
+
+msgid "Posts by popular categories"
+msgstr "Posty wg najpopularniejszych kategorii"
+
+msgid "Recent comments"
+msgstr "Najnowsze komentarze"
+
+msgid "No comments"
+msgstr "Brak komentarzy"
+
+
+msgid "Looking for: "
+msgstr "Szukana fraza: "
+
+msgid "Unfortunately no results with this phrase."
+msgstr "Niestety nie znaleziono szukanej frazy."
+
+msgid "Unfortunately no posts published this month."
+msgstr "Niestety nie znaleziono postów opublikowanych podanego miesiąca."
+
+msgid "Unfortunately no posts published by this author."
+msgstr "Niestety nie znaleziono postów opublikowanych przez podanego autora."
+
+msgid "Unfortunately no posts in this category."
+msgstr "Niestety nie znaleziono postów w podanej kategorii."
+
+msgid "Unfortunately no posts with this tag."
+msgstr "Niestety nie znaleziono postów z podanym tagiem."
+
+
+#: functions.php:35 functions.php:43
+msgid "Theme Settings"
+msgstr "Ustawienia motywu"
+
+#: functions.php:35 functions.php:43
+msgid "All Settings"
+msgstr "Wszystkie ustawienia"
+
+msgid "Social media"
+msgstr "Media społecznościowe"
+
+
+msgid "Wordpress template by "
+msgstr "Szablon WordPress autorstwa "
+

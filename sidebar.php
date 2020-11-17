@@ -1,7 +1,7 @@
 <div class="col-sm-3 sidebar">
 
           <div class="sidebar-archives">
-            <h3>Archives</h3>
+            <h3><?php _e("Archives"); ?></h3>
             <ol class="list-unstyled">
             <?php wp_get_archives('type=monthly'); ?>
             </ol>

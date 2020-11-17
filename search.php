@@ -1,7 +1,11 @@
 <?php
-get_header(); ?>
+get_header();
 
-<h2>Looking for: '
+
+?>
+
+<h2>
+    <?php _e('Looking for: ', 'my-secret-memory'); ?>'
     <?php 
         $search_phrase = get_search_query(); 
         echo $search_phrase; 
@@ -9,34 +13,34 @@ get_header(); ?>
 '</h2>
 <div class="row">
 	<div class="col-sm-12">
+        <section class="section-posts">
 
         <?php
-        
-        $args = array(
-            's' => $search_phrase,
-            'orderby'    => 'ID',
-            'post_status' => 'publish',
-            'order'    => 'DESC',
-            'posts_per_page' => -1 // this will retrive all the post that is published 
-        );
-        $result = new WP_Query($args);
+            $result = new WP_Query(
+                array_merge(mysecretmemory_excerpt_post_query_array(), 
+                    array('s' => $search_phrase)
+                )
+            );
+            if ($result->have_posts()): 
+                while ($result->have_posts()): $result->the_post();
+                    get_template_part('template-parts/content', 'excerpt');
+                endwhile; 
+            else:
+                ?>
+                    <secition>
+                        <p class="blog-section">
+                            <?php _e("Unfortunately no results with this phrase.", 'my-secret-memory'); ?>
+                        </p>
+                    </section>
+                <?php
+            endif;
 
-if ($result->have_posts()): 
-    while ($result->have_posts()): $result->the_post();
-        // get_template_part('content', get_post_format());
-        get_template_part('template-parts/content', 'excerpt');
-    endwhile; 
-else:
-    ?>
-        <secition>
-            <p class="blog-section">
-                Unfortunately no results with this phrase.
-            </p>
+            the_posts_pagination(array('total' => $result->max_num_pages));
+        ?>
         </section>
-    <?php
-endif;
-			?>
-
+        <?php if($result->max_num_pages>1){ 
+            mysecretmemory_post_pagination_scroller(); 
+        } ?>
 		</div> <!-- /.col -->
 	</div> <!-- /.row -->
 

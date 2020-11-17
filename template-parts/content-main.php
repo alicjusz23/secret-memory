@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying post archives and search results
  *
 */
 ?>
@@ -13,10 +13,12 @@
       <?php the_title(); ?>
     </a>
   </h3>
-  <p class="blog-post-meta-main"><?php echo date('jS F Y', strtotime($post->post_date)); ?> &bull; By <a href="/author/<?php echo get_the_author_meta('nickname'); ?>"><?php echo get_the_author_meta('display_name', $post->post_author); ?></a> &bull; 
+  <p class="blog-post-meta-main"><?php echo date_i18n(get_option('date_format'), strtotime($post->post_date)); ?> &bull; <?php _e(' By ', 'my-secret-memory') ?> <a href="/author/<?php echo get_the_author_meta('nickname', $post->post_author); ?>"><?php echo get_the_author_meta('display_name', $post->post_author); ?></a> &bull; 
     <a href="<?php comments_link(); ?>">
       <?php
-      printf(_nx('One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'textdomain'), number_format_i18n(get_comments_number())); ?>
+        printf(_n('One Comment', '%s Comments', get_comments_number(), 'my-secret-memory'), 
+          number_format_i18n(get_comments_number())); 
+      ?>
     </a>
   </p>
   <?php  

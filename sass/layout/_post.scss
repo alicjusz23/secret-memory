@@ -20,8 +20,7 @@
 
 .wp-post-image {
     // transition: filter 2s, transform 2s;
-    transition: transform 2s;
-    margin: 0.5em;
+    // transition: transform 2s;
 }
 
 .post-image {
@@ -30,7 +29,7 @@
 
 .wp-post-image:hover {
     //filter: sepia(90%);
-    transform: scale(0.95);
+    // transform: scale(0.95);
 }
 
 .post-content {
@@ -45,12 +44,18 @@
 }
 
 .thumbmnail-home img {
+    margin: 1.5em 1em 0 0;
     width: 100%;
     height: auto;
 }
 
 .blog-excerpt {
     text-align: justify;
+    margin: 1.5em 0;
+}
+
+.excerpt-tags {
+    margin-top: 1em;
 }
 
 

@@ -1,9 +1,11 @@
 /*_variables.scss */
 /* Body Text Styles */
 $text-color: white;
+$header-color: rgba(245, 245, 245, 0.6);
 $blue-color: rgb(99, 195, 211);
 $white-color: white;
-$pink-color: rgba(240, 192, 140, 0.8);
+// $pink-color: rgba(237, 197, 157, 1);
+$pink-color: rgba(240, 192, 140, 0.95);
 $pink-color-light: rgb(240, 192, 140);
 $green-color: rgb(139, 162, 32);
 $green-color-dark: rgb(120, 141, 32);
@@ -19,9 +21,3 @@ $black-color-lighter: rgba(9, 6, 23, 0.8);
 $base-font-size: 16px;
 // $base-font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
 $base-font-weight: 400;
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
-$title-font-family: 'Cinzel', serif;
-
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
-$base-font-family: 'Nanum Myeongjo', serif;

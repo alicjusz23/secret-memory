@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+$title-font-family: 'Cinzel', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+// $base-font-family: 'Nanum Myeongjo', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+$base-font-family: 'Tinos', serif;
+// $base-font-family: 'Petrona', serif;
+
 /*_typography.scss*/
+.text-italic {
+    font-style: italic;
+}
+
 body {
     color: $text-color;
     font-size: $base-font-size;
@@ -7,15 +22,15 @@ body {
     line-height: 1.6;
 }
 
-a {
-    color: $blue-color;
-    text-decoration: none;
-}
+// a {
+//     color: $blue-color;
+//     text-decoration: none;
+// }
 
 a:visited {
     color: $green-color;
 }
 
-a:hover {
-    color: $blue-color;
-}
+// a:hover {
+//     color: $blue-color;
+// }

@@ -10,9 +10,9 @@
   <div class="blog-post-info">
     <h2 class="blog-post-title"><?php the_title(); ?></h2>
     <p class="blog-post-meta">
-      <?php the_category('&bull;'); ?>
+      <?php the_category('  &bull;  '); ?>
     </p>
-    <p class="blog-post-meta">Posted on <?php the_date('jS F Y'); ?> by <a href="/author/<?php echo get_the_author_meta('nickname'); ?>"><?php the_author(); ?> </a></p>
+    <p class="blog-post-meta"><?php _e('Posted on ', 'my-secret-memory') ?> <?php echo date_i18n(get_option('date_format'), strtotime($post->post_date)); ?> <?php _e(' by ', 'my-secret-memory') ?> <a href="/author/<?php echo get_the_author_meta('nickname'); ?>"><?php the_author(); ?> </a></p>
   </div>
   <div class="post-content">
     <div class="post-image">
