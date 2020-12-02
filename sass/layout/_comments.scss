@@ -3,26 +3,30 @@
 #comment_form {
     margin-top: 2em;
     margin-bottom: 2em;
-    margin-left: auto;
-    margin-right: auto;
     padding: 1.5em 2em;
-    width: 50%;
     background-color: $pink-color;
     text-align: center;
-    color: $white-color;
+    color: $text-color;
+    h3{
+        color: $text-color;
+    }
+    
+    a {
+        color: $green-color-dark;
+    }
 }
 
 ::placeholder {
-    color: $green-color-shadow;
+    color: $text-color-lighter;
     opacity: 1;
 }
 
 :-ms-input-placeholder {
-    color: $green-color-shadow;
+    color: $text-color-lighter;
 }
 
 ::-ms-input-placeholder {
-    color: $green-color-shadow;
+    color: $text-color-lighter;
 }
 
 .comment-respond {
@@ -37,16 +41,16 @@ input[type=text], input[type=email], textarea {
     width: 85%;
     border-style: solid;
     border-width: 0.05px;
-    border-color: $green-color-light;
+    border-color: $text-color;
     background-color: transparent;
     outline: none;
-    color: $white-color;
-    font-size: large;
+    color: $black-color;
+    font-size: $large-font-size;
 }
 
 textarea:focus, input:focus{
     outline: none;
-    border-color: $green-color-dark;
+    border-color: $text-color;
 }
 
 textarea {
@@ -76,7 +80,7 @@ input#submit:hover {
 }
 
 input#submit:focus {
-    border: $green-color thin solid;
+    border: $text-color thin solid;
 }
 
 input[type=checkbox] {
@@ -87,13 +91,13 @@ input[type=checkbox] {
 #check {
     height: 15px;
     width: 15px;
-    border: 1px solid $green-color;
+    border: 1px solid $text-color;
     display: inline-block;
     position: relative;
 }
 
 .check-focus {
-    border-color: $green-color-dark !important;
+    border-color: $black-color !important;
 }
 
 input[type=checkbox]:checked + #check:before{
@@ -101,7 +105,7 @@ input[type=checkbox]:checked + #check:before{
     position: absolute;
     top: -5px;
     left: 0;
-    color: $green-color-light;
+    color: $text-color;
 }
 
 
@@ -115,10 +119,14 @@ input[type=checkbox]:checked + #check:before{
     color: $black-color;
 }
 
+.comment-avatar{
+    text-align: center;
+}
+
 a.comment-reply-link , a.reply {
     // background-color: $green-color;
     color: $green-color;
-    font-size: small;
+    font-size: $small-font-size;
 }
 
 a.comment-reply-link:hover , a.reply:hover {
@@ -127,36 +135,58 @@ a.comment-reply-link:hover , a.reply:hover {
 
 .comment-text {
     margin: 10px 0;
+    font-size: $base-font-size;
 }
 
 .single-comment {
+    //todo
     background-color: rgba(207, 207, 207, 0.2);
     border: thin solid $green-color-shadow;
-    color: black;
+    color: $black-color;
     text-align: justify;
-    font-size: medium;
-    width: 35em;
-    padding: 1.5em;
+    font-size: $base-font-size;
+    width: 100%;
     margin: 5px;
-
 }
 
+
+@media (min-width: 200px) and (max-width: 786px){
+    .single-comment {
+        padding: 1em;
+    }
+    .comment-text {
+        margin: 1px 0;
+    }
+    .comment.depth-2, .comment.depth-3 {
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 768px){
+    .single-comment {
+        padding: 1.5em;
+    }
+    .comment-text {
+        margin: 10px 0;
+    }
+    .comment.depth-2, .comment.depth-3 {
+        margin-left: 70px;
+    }
+}
+
+
 i.fa.icomment {
-    font-size: 1em;
+    font-size: $base-font-size;
     margin: 0 5px;
 }
 
 time, .activ-com {
-    font-size: small;
+    font-size: $small-font-size;
     font-style: italic;
 }
 
 .container.comments-container {
     width: inherit;
-}
-
-.comment.depth-2, .comment.depth-3 {
-    margin-left: 70px;
 }
 
 img.avatar {
@@ -167,7 +197,11 @@ img.avatar {
 
 .comment-not-approved {
     font-style: italic;
-    font-size: small;
+    font-size: $small-font-size;
+}
+
+.no-comments {
+    margin: 1em 0 4em 0 ;
 }
 
 
@@ -178,6 +212,12 @@ img.avatar {
     padding: 1em 2.5em;
     margin-top: 1em;
     // margin: 2em;
+    h1, h2, h3, h4, h5 {
+        color: $text-color;
+    }
+    a {
+        color: $green-color-dark;
+    }
 }
 
 .recent-com-li {

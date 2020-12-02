@@ -86,6 +86,9 @@ msgstr "Najnowsze komentarze"
 msgid "No comments"
 msgstr "Brak komentarzy"
 
+msgid "Commetns are closed."
+msgstr "Możliwość komentowania jest wyłączona."
+
 
 msgid "Looking for: "
 msgstr "Szukana fraza: "
@@ -116,6 +119,19 @@ msgstr "Wszystkie ustawienia"
 
 msgid "Social media"
 msgstr "Media społecznościowe"
+
+
+msgid "Ooops, something went wrong."
+msgstr "Upsss, coś poszło nie tak."
+
+msgid "This page is not available."
+msgstr "Strona, której szukasz, nie jest dostępna."
+
+msgid "Why not going to the"
+msgstr "Być może chciałbyś powrócić na"
+
+msgid "Home page"
+msgstr "Stronę główną"
 
 
 msgid "Wordpress template by "

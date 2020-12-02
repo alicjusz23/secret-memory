@@ -13,7 +13,7 @@
       <?php the_title(); ?>
     </a>
   </h3>
-  <p class="blog-post-meta-main"><?php echo date_i18n(get_option('date_format'), strtotime($post->post_date)); ?> &bull; <?php _e(' By ', 'my-secret-memory') ?> <a href="/author/<?php echo get_the_author_meta('nickname', $post->post_author); ?>"><?php echo get_the_author_meta('display_name', $post->post_author); ?></a> &bull; 
+  <p class="blog-post-meta-main"><?php echo date_i18n(get_option('date_format'), strtotime($post->post_date)); ?>&nbsp; &bull; &nbsp;<?php _e(' By ', 'my-secret-memory') ?> <a href="/author/<?php echo get_the_author_meta('nickname', $post->post_author); ?>"><?php echo get_the_author_meta('display_name', $post->post_author); ?></a>&nbsp; &bull; &nbsp;
     <a href="<?php comments_link(); ?>">
       <?php
         printf(_n('One Comment', '%s Comments', get_comments_number(), 'my-secret-memory'), 
@@ -25,7 +25,7 @@
     
   ?>
     <div class="row">
-      <div class="col-md-2 thumbmnail-home">
+      <div class="col-lg-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 thumbmnail-home">
         <?php
         if(has_post_thumbnail()){
           the_post_thumbnail('thumbnail');
@@ -34,7 +34,7 @@
         }
         ?>
       </div>
-      <div class="col-md-10 blog-excerpt">
+      <div class="col-lg-9 col-sm-8 col-sm-offset-0 col-xs-12 blog-excerpt">
         <?php 
           the_excerpt();
         ?>

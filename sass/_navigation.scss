@@ -1,121 +1,205 @@
 
-    .blog-masthead {
-        // background-color: blue;
-        background: url(./images/pen.jpg) fixed center;
-        background-size: cover;
-        background-attachment: fixed;
-        height: 500px;
-    }
+.blog-masthead {
+    background: url(./images/pen.jpg) fixed no-repeat;
+    // height: 500px;
+}
 
-    .blog-title {
-        font-size: 5em;
-        font-family: $title-font-family;
-        margin-top: 175px;
+////////// background image - DPR=1
 
-        a {
-            color: $green-color;
-            text-decoration: none;
-            // text-shadow: 2px 2px black;
-        }
-    }
-
-    .blog-description {
-        font-size: 2em;
-        font-family: $title-font-family;
-        color: $green-color;
-        // text-shadow: 2px 2px black;
+@media (min-width: 200px) and (-webkit-device-pixel-ratio: 1)  {
+    .blog-masthead { 
+        margin-bottom: 8vw;
     }
 
     .blog-header {
-        background-color: $header-color;
+      margin-top: clamp(2rem, 13vw, 6rem); 
     }
+}
 
-    .blog-header-all {
-        text-align: center;
+@media (min-width: 600px) and (-webkit-device-pixel-ratio: 1) {
+    .blog-masthead { 
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 6vw;
     }
-
-    .myNavbar {
-        background-color: transparent;
-        border: none;
+    .blog-header {
+        margin-top: clamp(6rem, 28vw, 11rem); 
     }
+}
 
-    .navbar-header {
-        margin-top: 20px;
+////////// background image - DPR>=2
+
+@media (min-width: 200px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2){
+    .blog-masthead { 
+        background-size: contain;
+        background-position: center top;
     }
+}
 
-    .myButton {
-        background-color: transparent;
-        border: none;
+@media (min-width: 200px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2){
+    .blog-masthead { 
+        background-size: cover;
+        background-position: center;
     }
+}
 
-    .icon-bar1, .icon-bar2, .icon-bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: $black-color;
-        margin: 6px 0;
-        transition: 0.4s;
+////////// margins - DPR>=2
+
+@media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 2) {
+    .blog-masthead { 
+        margin-bottom: 6vw;
     }
-
-    .overlay {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 2;
-        top: 0;
-        left: 0;
-        background-color: $black-color-shadow;
-        overflow-x: hidden;
-        transition: 0.5s;
+    .blog-header {
+        margin-top: clamp(3rem, 8vw, 8rem); 
     }
+}
 
-    .overlayContent {
-        position: relative;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
+@media (min-width: 500px) and (-webkit-min-device-pixel-ratio: 2) {
+    .blog-masthead { 
+        margin-bottom: 6vw;
     }
+    .blog-header {
+        margin-top: clamp(5rem, 18vw, 12rem); 
+    }
+}
 
-    .overlay a {
+@media (min-width: 1000px) and (-webkit-min-device-pixel-ratio: 2) {
+    .blog-masthead { 
+        margin-bottom: 6vw;
+    }
+    .blog-header {
+        margin-top: clamp(6rem, 28vw, 16rem); 
+    }
+}
+
+////////////
+
+.blog-title {
+    font-size: $title-font-size;
+    font-family: $title-font-family;
+
+    a {
+        color: $title-color;
         text-decoration: none;
-        font-size: 36px;
-        color: $pink-color;
-        display: block;
-        transition: 0.3s;
     }
+}
 
-    .overlay li {
-        list-style: none;
+.blog-description {
+    font-size: $description-font-size;
+    font-family: $title-font-family;
+    color: $title-color;
+    // text-shadow: 2px 2px black;
+}
+
+.blog-header {
+    background-color: $header-color;
+}
+
+.blog-header-all {
+    text-align: center;
+}
+
+.myNavbar {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-header {
+    margin-top: 20px;
+}
+
+#menuButton {
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+}
+
+.icon-bar1, .icon-bar2, .icon-bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: $black-color;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: $black-color-shadow;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlayContent {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    text-decoration: none;
+    font-size: 36px;
+    color: $pink-color;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay li {
+    list-style: none;
+}
+
+.children {
+    display: none;
+    opacity: 0;
+}
+
+.children > li > a{
+    font-size: $xlarge-font-size;
+}
+
+#menuCloseButton {
+    position: relative;
+    top: -5px;
+    left: 26px;
+    font-size: 60px;
+}
+
+#menuCloseButton:hover, #menuCloseButton:focus {
+    color: $title-color !important;
+}
+
+.skip-link {
+    background-color: $black-color;
+    padding: 0.1em 0.5em;
+}
+
+#skip-div {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    display: none;
+}
+
+
+//show skip link only on small devices landscape
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+    #skip-div{
+        display: initial;
     }
+}
 
-    #menuCloseButton {
-        position: relative;
-        top: -5px;
-        left: 26px;
-        font-size: 60px;
+
+.blog-nav { 
+    a {
+        padding: 8px;
     }
-
-    #menuCloseButton:hover, #menuCloseButton:focus {
-        color: $green-color-dark !important;
+    a:focus, a:hover {
+        color: $title-color !important;
     }
-
-    .skip-link {
-        background-color: $black-color;
-        padding: 0.1em 0.5em;
-    }
-
-    .skip-div {
-        position: absolute;
-        z-index: 1;
-        right: 0px;
-    }
-
-
-    .blog-nav { 
-        a {
-            padding: 8px;
-        }
-        a:focus, a:hover {
-            color: $green-color-dark !important;
-        }
-    }
+}

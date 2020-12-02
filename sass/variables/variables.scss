@@ -1,23 +1,26 @@
 /*_variables.scss */
 /* Body Text Styles */
-$text-color: white;
+$text-color:  #595959;
+$text-color-lighter:  #7c7c7c;
+$title-color: rgb(123, 145, 29);
 $header-color: rgba(245, 245, 245, 0.6);
 $blue-color: rgb(99, 195, 211);
 $white-color: white;
 // $pink-color: rgba(237, 197, 157, 1);
-$pink-color: rgba(240, 192, 140, 0.95);
+$pink-color: rgba(242, 203, 161, 1);
+// $pink-color: rgba(223, 168, 110, 0.95);
 $pink-color-light: rgb(240, 192, 140);
-$green-color: rgb(139, 162, 32);
-$green-color-dark: rgb(120, 141, 32);
+// $green-color: rgb(139, 162, 32);
+// $green-color: #505D13;
+$green-color: #657718;
+// $green-color-dark: rgb(120, 141, 32);
+$green-color-dark: #505D13;
 $green-color-light: rgb(154, 180, 37);
 $green-color-lighter: rgb(165, 187, 70);
 $green-color-shadow: rgba(154, 180, 37, 0.7);
 $grey-color: rgba(207, 207, 207, 0.2);
 $grey-color-darker: rgba(215, 215, 215, 0.5);
 $black-color-shadow: rgba(9, 6, 23, 0.97);
-$black-color: rgb(9, 6, 23);
+$black-color: rgb(27, 27, 27);
 $black-color-lighter: rgba(9, 6, 23, 0.8);
 // $back-color: rgb(109, 200, 2019);
-$base-font-size: 16px;
-// $base-font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
-$base-font-weight: 400;

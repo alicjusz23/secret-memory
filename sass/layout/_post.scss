@@ -2,6 +2,24 @@
     padding: 2em 6em 3em 6em;
     margin: 2em 2em;
     background-color: $pink-color;
+    h1, h2, h3, h4, h5 {
+        color: $text-color;
+    }
+    a {
+        color: $green-color-dark;
+    }
+}
+
+@media (min-width: 200px) {
+    .blog-post {
+        padding: 1em 3em 1em 3em;
+    }
+}
+
+@media (min-width: 600px) {
+    .blog-post {
+        padding: 2em 6em 3em 6em;
+    }
 }
 
 .blog-post-info {
@@ -10,26 +28,24 @@
 
 .post-text {
     margin: 1em 0;
-    font-size: large;
+    font-size: $large-font-size;
 }
 
 .blog-post-meta {
-    font-size: 1.1em;
+    //font-size: 1.1em;
+    font-size: $large-font-size;
     font-style: italic;
 }
 
 .wp-post-image {
     // transition: filter 2s, transform 2s;
     // transition: transform 2s;
+    max-width: 100%;
+    height: auto;
 }
 
 .post-image {
     text-align: center;
-}
-
-.wp-post-image:hover {
-    //filter: sepia(90%);
-    // transform: scale(0.95);
 }
 
 .post-content {
@@ -38,7 +54,7 @@
 
 .blog-post-meta-bottom {
     text-align: center;
-    font-size: medium;
+    font-size: $base-font-size;
     font-style: italic;
     margin: 3em 0 1em 0;
 }
@@ -52,6 +68,13 @@
 .blog-excerpt {
     text-align: justify;
     margin: 1.5em 0;
+    
+    h1, h2, h3, h4, h5 {
+        color: $text-color;
+    }
+    a {
+        color: $green-color-dark;
+    }
 }
 
 .excerpt-tags {

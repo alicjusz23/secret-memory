@@ -1,21 +1,38 @@
 .blog-footer {
-    background-color: $black-color;
+    background-color: black;
     text-align: center;
     padding: 1.5em 0 1.5em 0;
+    color: $white-color;
+    a {
+        color: $title-color;
+    }
 }
 
 #topScrollButton {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
     z-index: 1;
-    background-color: $green-color;
-    color: $text-color;
+    background-color: $title-color;
+    color: $white-color;
     border: none;
     outline: none;
     border-radius: 50%;
     padding: 10px 15px;
 }
+
+@media (min-width: 200px) and (max-width: 786px){
+    #topScrollButton {
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+@media (min-width: 768px){
+    #topScrollButton {
+        bottom: 50px;
+        right: 50px;
+    }
+}
+
 
 #topScrollButton:hover, 
 #topScrollButton:active, 
@@ -26,4 +43,9 @@
 i.fa.smedia {
     font-size: 2em;
     margin: 0.5em;
+    color: $title-color;
+}
+
+i.fa.smedia:hover, i.fa.smedia:hover:focus {
+    color: $green-color-light;
 }

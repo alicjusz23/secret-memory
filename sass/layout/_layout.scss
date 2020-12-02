@@ -1,17 +1,25 @@
-@mixin text-areas {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    padding: 2.5em 3em;
+body {
+    color: $text-color;
+    font-size: $base-font-size;
+    font-family:$base-font-family;
+    font-weight: $base-font-weight;
+    line-height: 1.6;
+}
+
+a:visited {
+    color: $green-color;
 }
 
 .blog-main {
-    @include text-areas;
+    margin: 1em 0 2em 0;
+    padding: 2.5em 2em;
 }
 
 .blog-section {
-    @include text-areas;
-    font-size: large;
-    color: $black-color;
+    margin: 2em 0;
+    padding: 2.5em 3em;
+    font-size: $large-font-size;
+    color: $green-color-dark;
     border: thin $green-color-light solid;
     background-color: $grey-color;
     border-radius: 2px;
@@ -50,7 +58,7 @@
     }
 
     label {
-        font-size: large;
+        font-size: $large-font-size;
         color: $green-color;
     }
 }
@@ -61,44 +69,40 @@
 }
 
 .sidebar-tags {
-    margin-top: 3em;
+    margin-top: 3rem;
     color: $black-color;
     text-align: center;
 }
 
 h1 {
-    font-size: 250%;
-    font-weight: 500;
+    font-size: $xxxlarge-font-size;
     color: $green-color;
 }
 
 h2 {
-    font-size: xx-large;
-    font-weight: 500;
+    font-size: $xxlarge-font-size;
+    text-shadow: 0 0 0.5px currentColor;
     color: $green-color;
 }
 
 h3 {
-    font-size: x-large;
-    font-weight: 500;
+    font-size: $xlarge-font-size;
+    text-shadow: 0 0 0.5px currentColor;
     color: $green-color;
 }
 
 h4 {
     color: $green-color;
-    font-weight: 500;
-    font-size: medium;
+    font-size: $large-font-size;
 }
 
 h5 {
-    font-size: 1.1em;
-    font-weight: 500;
+    font-size: $large-font-size;
     color: $green-color;
 }
 
 a {
     color: $green-color;
-    font-weight: 400;
 }
 
 a:active, a:hover, a:focus {
@@ -110,32 +114,54 @@ html {
     scroll-behavior: smooth;
 }
 
+.sectionTitle{
+    margin-bottom: 1em;
+}
+
 ////////////// POST //////////////
 
-.wp-post-image {
+@mixin image-border {
     border: thin $green-color-light solid;
-    border-radius: 1px;
     padding: 0.2em;
     background-color: $grey-color-darker;
+}
+
+.wp-post-image {
+    @include image-border;
     // margin: 0.5em;
     margin-top: 1.5em;
-    
+    border-radius: 1px;
+}
+
+
+.wp-block-image.is-style-rounded{
+    img{
+        @include image-border
+    }
+}  
+.wp-block-image.is-style-default{
+    img {
+        @include image-border;
+        border-radius: 1px;
+    }
+}
+
+figure.wp-block-image {
+    margin: auto;
+}
+
+.blocks-gallery-item {
+    img {
+        @include image-border();
+    }
 }
 
 .blog-post-meta-main {
-    font-size: 1.2em;
-}
-
-.thumbmnail-home {
-    // transition: transform 2s;
-}
-
-.thumbmnail-home:hover {
-    // transform: scale(0.95);
+    font-size: $large-font-size;
 }
 
 .post-text-main {
-    font-size: large;
+    font-size: $large-font-size;
 }
 
 .post-content-main {
@@ -143,17 +169,38 @@ html {
 }
 
 .blog-post-main {
-    @include text-areas;
+    margin: 1em 0 2em 0;
+    padding: 2.5em 3em;
     background-color: $pink-color;
+
+    h1, h2, h3, h4, h5 {
+        color: $text-color;
+    }
+    a {
+        color: $green-color-dark;
+    }
 }
 
 .blog-post-excerpt {
-    padding: 2.5em 7em 2.5em 6em;
     margin: 2em 1em 2em 0;
     background-color: $pink-color;
+}
 
-    .blog-excerpt {
-        padding: 0 0 0 2em;
+@media (min-width: 768px){
+    .blog-post-excerpt {
+        padding: 2.5em 7em 2.5em 6em;
+    }
+    .blog-site-excerpt {
+        margin: 0 ;
+    }
+}
+
+@media (min-width: 200px){
+    .blog-post-excerpt {
+        padding: 2.5em 3em 2.5em 3em;
+    }
+    .blog-site-excerpt {
+        margin: 0 2em;
     }
 }
 
@@ -190,27 +237,55 @@ html {
 }
 
 .category-img {
-    height: 400px;
     max-width: 100%;
     object-fit: cover;
+    //height: 400px;
 }
+
+// @media (min-width: 1200px){
+//     .panel.panel-default {
+//         height: 500px;
+//     }
+// }
+
+// @media (min-width: 200px){
+//     .panel.panel-default  {
+//         height: 300px;
+//     }
+// }
 
 .panel {
     background-color: $grey-color;
     border: thin solid $green-color-shadow;
-    color: black;
+    color: $black-color;
 }
 
 .cat-panel {    
     padding: 15px 10px;
+    // height: max-content;
 }
 
 @mixin categories-img {
     background-size: cover;
-    height: 400px;
     max-width: 100%;
     margin: 5px;
     display: block;
+}
+
+@media (min-width: 1200px){
+    .cat-panel > .first,
+    .cat-panel > .second,
+    .cat-panel > .third{
+        height: 400px;
+    }
+}
+@media (min-width: 200px) and (max-width: 1200px){
+    .cat-panel > .first,
+    .cat-panel > .second,
+    .cat-panel > .third{
+        height: 200px;
+        background-position: center;
+    }
 }
 
 .cat-panel > .first {
@@ -244,17 +319,30 @@ html {
 
 .cat-panel > .cat-panel-text  {
     position: absolute;
-    font-size: 2em;
-    top: 270px;
+    font-size: $xxlarge-font-size;
     width: calc(100% - 50px);
     padding: 0 0.2em;
-    height: 5em;
+    
     text-align: center;
     word-wrap: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+}
+
+@media (min-width: 1200px){
+    .cat-panel > .cat-panel-text  {
+        height: 5em;
+        top: 270px;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 1200px){
+    .cat-panel > .cat-panel-text  {
+        height: 3em;
+        top: 100px;
+    }
 }
 
 
@@ -264,10 +352,6 @@ a > .cat-panel {
 
 a:hover > .cat-panel{
     text-decoration: none;
-    color: $grey-color-darker;
+    color: $black-color-lighter;
     cursor: pointer;
 }
-
-// .read-more {
-//     padding: 10px 0;
-// }

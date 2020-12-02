@@ -44,10 +44,10 @@
 						<div class="comment-meta post-meta">
 							<div class="container comments-container">
 								<div class="row">
-									<div class="col-md-1">	
+									<div class="col-xs-2 col-sm-1 comment-avatar">	
 										<?php echo get_avatar( $comment, 30); ?>
 									</div>
-									<div class="col-md-11">
+									<div class="col-xs-10 col-sm-11">
 										<h4 class="comment-author">
 											<a class="comment-author-link" href="
 												<?php 
@@ -73,7 +73,7 @@
 											<time class="comment-meta-item" ><?php echo get_comment_date(get_option('date_format')); ?>, <?php comment_time() ?></time>
 											<?php edit_comment_link('<i class="comment-meta-item fa fa-pencil icomment" title="Edit"></i>','',''); ?>
 											<?php
-												if($depth<3)
+												if($depth<2)
 											 		comment_reply_link(array_merge( $args, array('reply_text' => __('<i class="fa fa-reply icomment" title="Reply"></i>', 'my-secret-memory'), 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?></p>
 										</h4>
 										<?php if ($comment->comment_approved == '0') : ?>

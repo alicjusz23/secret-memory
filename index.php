@@ -8,7 +8,7 @@ get_header(); ?>
 
 
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8 col-sm-8 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 
       <!-- new posts -->
       <section class="blog-main">
@@ -33,7 +33,7 @@ get_header(); ?>
       <!-- Posts by categories -->
       <section id="categories-main">
         <div>
-          <h2>
+          <h2 class="sectionTitle">
             <?php _e("Posts by popular categories", 'my-secret-memory'); ?>
           </h2>
           <div class="row">
@@ -43,7 +43,7 @@ get_header(); ?>
               $class_array = ["first", "second", "third"];
               foreach($categories as $t){
                 ?>
-                <div class="col-sm-4">
+                <div class="col-lg-4">
                   <div class="panel panel-default">
                     <a href="/category/<?php echo $t->slug; ?>">
                     <div class="cat-panel">
@@ -86,7 +86,7 @@ get_header(); ?>
                   //comment author
                   $comm .= '<span class="span-larger-text">' . get_comment_author($comment->comment_ID) . '</span></a>';
                   //comment post
-                  $comm .= '<span class="green-text"> on <a href="' . get_permalink($comment->comment_post_ID) . '">"' . get_the_title($comment->comment_post_ID) . '"</a></span>';
+                  $comm .= ' on <a href="' . get_permalink($comment->comment_post_ID) . '">"' . get_the_title($comment->comment_post_ID) . '"</a>';
                   //comment date
                   // $comm .= '<span class="green-text"> &bull; ' . date_i18n(get_option('date_format'), get_comment_date('', $comment->comment_ID)) . '</span>';
                   //comment excerpt
@@ -108,7 +108,7 @@ get_header(); ?>
     </div>
 
     <!-- empty column break -->
-    <div class="col-sm-1"></div>
+    <!-- <div class="col-sm-1"></div> -->
 
     <?php get_sidebar(); ?>
     

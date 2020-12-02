@@ -14,13 +14,6 @@
     add_action( 'wp_enqueue_scripts', 'mysecretmemory_scripts' );
 
 
-    // function startwordpress_google_fonts() {
-    //     wp_register_style('OpenSans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
-    //     wp_enqueue_style( 'OpenSans');
-    // }
-    
-    // add_action('wp_print_styles', 'startwordpress_google_fonts');
-
     // WordPress Titles
     add_theme_support('title-tag');
 
@@ -95,7 +88,22 @@
 
     //Notice: ob_end_flush(): failed to send buffer of zlib output compression - prevent this error
     remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
+    add_action( 'shutdown', function() {
+        while ( @ob_end_flush() );
+    } );
 
+
+    add_filter( 'page_attributes_dropdown_pages_args', 'admin_page_attributes_meta_filter', 10, 2 );
+
+function admin_page_attributes_meta_filter($dropdown_args, $post=NULL) {
+    $dropdown_args['depth'] = 1;
+    return $dropdown_args;
+
+}
+add_filter( 'quick_edit_dropdown_pages_args', 'admin_page_attributes_meta_filter', 10, 1);
+
+
+    
 
     function get_previous_posts() {
         ob_start();
@@ -157,7 +165,7 @@
         if($ajaxposts->have_posts()){
             while($ajaxposts->have_posts()){
                 $ajaxposts->the_post();
-                get_template_part('template-parts/content', 'main');
+                $html .= get_template_part('template-parts/content', 'main');
                 $html .= ob_get_contents();
                 if(get_previous_post()){
                     $prev=1;

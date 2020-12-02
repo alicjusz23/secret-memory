@@ -1,36 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
 $title-font-family: 'Cinzel', serif;
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
-// $base-font-family: 'Nanum Myeongjo', serif;
-
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 $base-font-family: 'Tinos', serif;
 // $base-font-family: 'Petrona', serif;
 
+
+// $base-font-size: 16px;
+$title-font-size: clamp(2rem, 7vw, 5rem);
+$description-font-size: clamp(1rem, 3.5vw, 2rem);
+
+$base-font-size: clamp(0.85em, 2vw, 1em); 
+// $base-font-size: 1em; 
+
+// $small-font-size: clamp(0.6em, 1.5vw, 0.8em); 
+$small-font-size: clamp(0.7em, 1.5vw, 0.8em); 
+// $small-font-size: 0.8em;
+// $large-font-size: clamp(0.9em, 2.5vw, 1.2em); 
+$large-font-size: clamp(1em, 2.5vw, 1.2em); 
+// $large-font-size: 1.2em; 
+
+// $xlarge-font-size: clamp(1.2em, 3vw, 1.5em); 
+$xlarge-font-size: clamp(1.3em, 3vw, 1.5em); 
+// $xlarge-font-size: 1.5em;
+// $xxlarge-font-size: clamp(1.5em, 3.5vw, 2em); 
+$xxlarge-font-size: clamp(1.7em, 3.5vw, 2em); 
+// $xxlarge-font-size: 2em; 
+// $xxxlarge-font-size: clamp(1.9em, 4vw, 2.5em); 
+$xxxlarge-font-size: clamp(2.1em, 4vw, 2.5em); 
+// $xxxlarge-font-size: 2.5em; 
+
+$base-font-weight: 400;
+
 /*_typography.scss*/
 .text-italic {
     font-style: italic;
 }
-
-body {
-    color: $text-color;
-    font-size: $base-font-size;
-    font-family:$base-font-family;
-    font-weight: $base-font-weight;
-    line-height: 1.6;
-}
-
-// a {
-//     color: $blue-color;
-//     text-decoration: none;
-// }
-
-a:visited {
-    color: $green-color;
-}
-
-// a:hover {
-//     color: $blue-color;
-// }
