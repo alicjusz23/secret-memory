@@ -30,7 +30,7 @@
         if(has_post_thumbnail()){
           the_post_thumbnail('thumbnail');
         }else {
-          ?><img class="attachment-thumbnail wp-post-image" src="<?php echo get_template_directory_uri();?>/images/image.jpg" ><?
+          ?><img class="attachment-thumbnail wp-post-image" src="<?php echo esc_url(get_template_directory_uri() . '/images/image.jpg' );?>" ><?php
         }
         ?>
       </div>
@@ -51,7 +51,7 @@
             the_tags('', '&nbsp; • &nbsp;'); 
             ?>
             </span>
-            <?
+            <?php
           }
         ?></p><?php
         ?>

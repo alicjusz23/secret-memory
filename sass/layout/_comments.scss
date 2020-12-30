@@ -1,9 +1,6 @@
 //////////// COMMENT FORM ///////////////
 
-#comment_form {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    padding: 1.5em 2em;
+.comment-respond {
     background-color: $pink-color;
     text-align: center;
     color: $text-color;
@@ -16,6 +13,37 @@
     }
 }
 
+
+@media (max-width: 400px) {
+    .comment-respond {
+        margin: 2em 0 1em 0;
+        padding: 2em 1em 0.5em 1em;
+    }
+}
+
+@media (max-width: 650px) and (min-width:400px) {
+    .comment-respond {
+        margin: 2em 2em 1em 2em;
+        padding: 2em 1em 0.5em 1em;
+    }
+}
+
+@media (min-width: 650px) {
+    .comment-respond {
+        margin: 3em 6.5em 2em 6.5em;
+        padding: 3em 4em 2em 4em;
+    }
+}
+
+
+// section.comments-list > article {
+//     margin-right: 20vw;
+// }
+
+// section.comments-list.child-comments > article {
+//     margin-right: 0;
+// }
+
 ::placeholder {
     color: $text-color-lighter;
     opacity: 1;
@@ -27,10 +55,6 @@
 
 ::-ms-input-placeholder {
     color: $text-color-lighter;
-}
-
-.comment-respond {
-    margin-top: 1em;
 }
 
 .comment-form > p  {
@@ -76,7 +100,7 @@ input#submit {
 }
 
 input#submit:hover {
-    background-color: $black-color-lighter;
+    background-color: $black-color-lighter2;
 }
 
 input#submit:focus {
@@ -141,7 +165,7 @@ a.comment-reply-link:hover , a.reply:hover {
 .single-comment {
     //todo
     background-color: rgba(207, 207, 207, 0.2);
-    border: thin solid $green-color-shadow;
+    border: thin solid $green-color-light2;
     color: $black-color;
     text-align: justify;
     font-size: $base-font-size;
@@ -204,6 +228,21 @@ img.avatar {
     margin: 1em 0 4em 0 ;
 }
 
+.commentPagination{
+    text-align: center;
+    margin: 2em 0;
+}
+
+.page-numbers {
+    margin: 0 0.1em;
+}
+
+.page-numbers.current {
+    border: thin solid $green-color;
+    padding: 0.2em;
+    font-size: $large-font-size;
+}
+
 
 ///////// RECENT COMMENTS ////////////
 
@@ -236,4 +275,12 @@ img.avatar {
 
 .green-text {
     color: $green-color;
+}
+
+
+//////////*  COMMENT REPLY  *///////////
+
+#cancel-comment-reply-link {
+    margin-left: 10px;
+    font-style: italic;
 }

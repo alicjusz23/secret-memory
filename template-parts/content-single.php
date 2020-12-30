@@ -6,9 +6,9 @@
 ?>
 
 
-<article class="blog-post">
+<article <?php post_class("blog-post"); ?>>
   <div class="blog-post-info">
-    <h2 class="blog-post-title"><?php the_title(); ?></h2>
+    <h1 class="blog-post-title"><?php the_title(); ?></h1>
     <p class="blog-post-meta">
       <?php the_category('  &bull;  '); ?>
     </p>

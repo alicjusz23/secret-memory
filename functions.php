@@ -19,9 +19,55 @@
 
     // Support Featured Images
     add_theme_support( 'post-thumbnails' );
+
+    // automatic feed links
+    add_theme_support( 'automatic-feed-links' );
+
+    // custom header
+    add_theme_support('custom-header', array(
+        'default-image' => get_template_directory_uri() . '/images/notes1.jpg',
+        'uploads' => true
+    ));
     
+    register_default_headers(array(
+        'default-image' => array(
+            'url' => get_template_directory_uri() . '/images/notes1.jpg',
+            'thumbnail_url' => get_template_directory_uri() . '/images/notes1_thumbnail.jpg',
+            'description'   => __('Desktop', 'my-secret-memory' )
+        ),
+    ));
+
+
+    // add editor style
+    add_editor_style();
+
+
     // Comment walker.
     require get_template_directory() . '/classes/class-mysecretmemory-walker-comment.php';
+
+
+    //comment reply script
+    function mysecretmemory_enqueue_comments_reply() {
+        if( get_option( 'thread_comments' ) )  {
+            wp_enqueue_script( 'comment-reply' );
+        }
+    }
+    add_action('comment_form_before', 'mysecretmemory_enqueue_comments_reply' );
+
+
+    //custom background
+    add_theme_support( 'custom-background' );
+
+    // register menu
+    function mysecretmemory_register_menu() {
+        register_nav_menus(
+          array(
+            'primary-menu' => __("Primary Menu", "my-secret-memory")
+           )
+         );
+       }
+    add_action( 'init', 'mysecretmemory_register_menu' );
+
 
 
     function mysecretmemory_settings_add_menu(){
@@ -80,6 +126,34 @@
     add_action('admin_init', 'mysecretmemory_settings_page_setup');
 
 
+    // register sidebar - widget area
+    function mysecretmemory_widgets_init() {
+        register_sidebar(
+            array(
+                'name'          => __( 'Main sidebar', 'my-secret-memory' ),
+                'id'            => 'sidebar1',
+                'description'   => __( 'Add widgets here to appear in your footer.', 'my-secret-memory' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            )
+        );
+    }
+    add_action('widgets_init', 'mysecretmemory_widgets_init' );
+
+
+    // $content_width variable
+    function mysecretmemory_content_width() {
+        // $GLOBALS['content_width'] = 900;
+        if ( !isset( $content_width ) ) {
+            $content_width = 900;
+          }
+    }
+    add_action( 'after_setup_theme', 'mysecretmemory_content_width', 0 );
+
+
+    // theme textdomain
     function mysecretmemory_load_theme_textdomain() {
         load_theme_textdomain('my-secret-memory', get_template_directory() . '/languages' );
     }
@@ -93,16 +167,17 @@
     } );
 
 
-    add_filter( 'page_attributes_dropdown_pages_args', 'admin_page_attributes_meta_filter', 10, 2 );
 
-function admin_page_attributes_meta_filter($dropdown_args, $post=NULL) {
-    $dropdown_args['depth'] = 1;
-    return $dropdown_args;
-
-}
-add_filter( 'quick_edit_dropdown_pages_args', 'admin_page_attributes_meta_filter', 10, 1);
-
-
+    //filter page title
+    add_filter('wp_title', 'filter_page_title', 10, 2);
+    function filter_page_title($title, $sep) {
+        $site_description = get_bloginfo( 'description', 'display' );
+        if ( $site_description && ( is_home() || is_front_page() ) )
+            $title = get_bloginfo( 'name' ) . "$sep $site_description";
+        else
+            $title .=  get_bloginfo( 'name' );
+        return $title;
+    }
     
 
     function get_previous_posts() {

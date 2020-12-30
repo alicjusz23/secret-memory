@@ -25,38 +25,42 @@ jQuery(document).ready(function(){
         jQuery("#menuButton").fadeIn();
     });
 
+
     //menu subpages animation
-    jQuery('.page_item_has_children').hover(
+    var tIn;
+    jQuery('.menu-item-has-children').hover(
         function(){
-            // console.log(jQuery(':focus').toArray());
-                jQuery(this).find('.children').animate({"opacity":"1", "height": "toggle"}, 400);
+            // clearTimeout(tOut);
+            var inObj = jQuery(this);
+            tIn = setTimeout(function(){
+                inObj.children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
+            }, 400, inObj);
         }, 
         function(){
-                jQuery(this).find('.children').animate({"opacity":"0", "height": "toggle"}, 400);
+            clearTimeout(tIn);
         }
     );
 
-    jQuery('li.page_item_has_children > a').focusin(
+    jQuery('li.menu-item-has-children > a').focusin(
         function(){
-            if(jQuery(this).parent().find('.children').css('opacity')==='0'){
-                // console.log('ala');
-                jQuery(this).parent().find('.children').animate({"opacity":"1", "height": "toggle"}, 400);
+            if(jQuery(this).parent().children('.sub-menu').first().css('opacity')==='0'){
+                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
             }
         }
     );
 
-    jQuery('li.page_item_has_children > a').focusout(
+    jQuery('li.menu-item-has-children > a').focusout(
         function(){
             // console.log(jQuery(this).parent(':focus-within').toArray());
-            // if(jQuery(this).parent().find('.children').css('opacity')==='1' && !jQuery(this).parent().find('.children').is(':focus')){
+            // if(jQuery(this).parent().find('.sub-menu').css('opacity')==='1' && !jQuery(this).parent().find('.sub-menu').is(':focus')){
             if(!jQuery(this).parent(':focus-within').length){
                 // console.log(this);
-                jQuery(this).parent().find('.children').animate({"opacity":"0", "height": "toggle"}, 400);
+                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"0", "height": "toggle"}, 400);
             }
         }
     );
 
-    jQuery('.children > li > a').focusout(
+    jQuery('.sub-menu > li > a').focusout(
         function(){
             // console.log(jQuery(this).parents().eq(1).parent(':focus-within').length);
             if(!jQuery(this).parents().eq(1).parent(':focus-within').length){
@@ -64,29 +68,6 @@ jQuery(document).ready(function(){
             }
         }
     );
-
-    // jQuery('li.page_item_has_children').find('.children > a').focus(function(){
-    //     // jQuery(this).animate({"opacity":"1", "height": "toggle"}, 400);
-    //     // jQuery(this).css("display", "list-item");
-    //     jQuery(this).animate({"opacity":"1", "height": "toggle", "display": "list-item"}, 400);
-    // });
-
-    // jQuery('li.page_item_has_children').on("focusout",
-    //     function(){
-    //         // if(jQuery(this).find('.children').css('opacity')==='1'){
-    //             jQuery(this).find('.children').animate({"opacity":"0", "height": "toggle"}, 400);
-    //         // }
-    //     }
-    // ); 
-    // jQuery('.page_item_has_children').find('.children').focusin(
-    //     function(){
-    //         jQuery(this).animate({"opacity":"1", "height": "toggle"}, 400);
-    //     }
-    // ).focusout(
-    //     function(){
-    //         jQuery(this).animate({"opacity":"0", "height": "toggle"}, 400);
-    //     }
-    // ); 
 
 
 

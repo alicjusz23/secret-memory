@@ -9,7 +9,7 @@
 
     <footer class="blog-footer" id="footer">
       <p>
-        <?php _e("Wordpress template by ", 'my-secret-memory'); ?>
+        <?php _e("WordPress template by ", 'my-secret-memory'); ?>
         <a href="https://github.com/alicjusz23">Alicja</a>.
       </p>
       <p>

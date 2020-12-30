@@ -4,17 +4,13 @@ jQuery(document).ready(function(){
         // Infinite scroll options
         jQuery('.section-posts').infiniteScroll({
             path: '.next.page-numbers',
-            append: '.blog-post-main',
+            append: '.blog-post-excerpt',
             status: '.scroller-status',
             hideNav: '.navigation.pagination',
             // scrollThreshold: 100,
             history: false
         });
     }
-
-    // jQuery('input[type=checkbox]').focusin(function() {
-    //     jQuery('#check').css('border-color', 'black');
-    // });
 
     jQuery('input[type=checkbox]').focusin(function() {
         jQuery('#check').addClass('check-focus');
@@ -36,10 +32,11 @@ jQuery(document).ready(function(){
                 if(!results.next){
                     jQuery('#nextPost').hide();
                 }
-        },
-        error: function(xhr, text, error){
-            alert("Error: " + error);
-        }   
+        }
+        // ,
+        // error: function(xhr, text, error){
+        //     alert("Error: " + error);
+        // }   
     });
 
     jQuery('#nextPost').click(function(){
@@ -60,10 +57,11 @@ jQuery(document).ready(function(){
                 } else {
                     jQuery('#nextPost').show();
                 }
-            },
-            error: function(xhr, text, error){
-                alert("Error: " + error);
-            }  
+            }
+            // ,
+            // error: function(xhr, text, error){
+            //     alert("Error: " + error);
+            // }  
         });
     });
 
@@ -85,10 +83,11 @@ jQuery(document).ready(function(){
                 } else {
                     jQuery('#nextPost').show();
                 }
-            },
-            error: function(xhr, text, error){
-                alert("Error: " + error);
-            }  
+            }
+            // ,
+            // error: function(xhr, text, error){
+            //     alert("Error: " + error);
+            // }  
         });
     });    
 });

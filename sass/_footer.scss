@@ -1,17 +1,27 @@
 .blog-footer {
-    background-color: black;
+    background-color: $black;
     text-align: center;
     padding: 1.5em 0 1.5em 0;
     color: $white-color;
+}
+
+#footer {
+    h1, h2, h3, h4, h5 {
+        color: $text-color;
+    }
     a {
-        color: $title-color;
+        color: $green-color-light2;
+    }
+    a:hover, a:focus {
+        color: $green-color-light;
     }
 }
+
 
 #topScrollButton {
     position: fixed;
     z-index: 1;
-    background-color: $title-color;
+    background-color: $green-color-dark;
     color: $white-color;
     border: none;
     outline: none;
@@ -37,13 +47,13 @@
 #topScrollButton:hover, 
 #topScrollButton:active, 
 #topScrollButton:focus  {
-    background-color: $green-color-light;
+    background-color: $green-color;
 }
 
 i.fa.smedia {
     font-size: 2em;
     margin: 0.5em;
-    color: $title-color;
+    color: $green-color-light2;
 }
 
 i.fa.smedia:hover, i.fa.smedia:hover:focus {

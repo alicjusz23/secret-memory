@@ -25,16 +25,16 @@
     
   ?>
     <div class="row">
-      <div class="col-md-4 thumbmnail-home">
+      <div class="col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 thumbmnail-home">
         <?php
         if(has_post_thumbnail()){
           the_post_thumbnail('thumbnail');
         }else {
-          ?><img class="attachment-thumbnail wp-post-image" src="<?php echo get_template_directory_uri();?>/images/image.jpg" ><?
+          ?><img class="attachment-thumbnail wp-post-image" src="<?php echo esc_url(get_template_directory_uri() . '/images/image.jpg' );?>" ><?php
         }
         ?>
       </div>
-      <div class="col-md-8 blog-excerpt">
+      <div class="col-sm-8 col-xs-12 blog-excerpt">
         <?php 
           the_excerpt();
         ?>

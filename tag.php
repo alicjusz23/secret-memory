@@ -4,7 +4,7 @@
 
 <div class="blog-site-excerpt">
     <?php
-    the_archive_title('<h3>', '</h3>');
+    the_archive_title('<h2>', '</h2>');
     ?>
 
     <div class="row">

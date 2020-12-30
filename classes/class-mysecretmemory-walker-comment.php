@@ -53,7 +53,7 @@
 												<?php 
 													if($comment->user_id > 0){
 														// url to post author
-														echo get_site_url( ) . "/author/"  .  get_user_by('id', $comment->user_id)->nickname;
+														echo esc_url(get_home_url( ) . "/author/"  .  get_user_by('id', $comment->user_id)->nickname);
 													}else{
 														// url provided by comment author
 														comment_author_url(); 
@@ -78,7 +78,7 @@
 										</h4>
 										<?php if ($comment->comment_approved == '0') : ?>
 											<p class="comment-meta-item comment-not-approved">
-												<?php _e("Your comment is awaiting moderation."); ?>
+												<?php __("Your comment is awaiting moderation.", "my-secret-memory"); ?>
 											</p>
 										<?php endif; ?>
 										<div class="comment-content">

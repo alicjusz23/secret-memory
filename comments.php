@@ -6,7 +6,8 @@
  
 <div id="comments" class="comments">
     <div class="row">
-        <div id="comments_list" class="col-sm-8 col-xs-11">
+        <!-- <div id="comments_list" class="col-sm-8 col-xs-11"> -->
+        <div id="comments_list" class="col-lg-9 col-lg-offset-1 col-xs-12">
         <?php 
             if(have_comments()) : ?>
                 <h5 class="comments-title">
@@ -17,6 +18,8 @@
                     number_format_i18n(get_comments_number()), get_the_title());
                 ?>
                 </h5>
+
+                <!-- Here inner comment part starts -->
                 <ul class="comment-list">
                     <?php
                         wp_list_comments(array(
@@ -28,9 +31,17 @@
                         ));
                     ?>
                 </ul>
+
+                <div class="commentPagination">
+                    <?php paginate_comments_links(array(
+                        'prev_text'=> __('<< Previous ','my-secret-memory'),
+                        'next_text'=> __(' Next >>', 'my-secret-memory'),
+                    )); ?> 
+                </div>
+
             <?php else: ?>
                 <h5 class="comments-title">0 <?php _e("comments on  \"", 'my-secret-memory'); echo get_the_title() . "\""; ?></h5>
-            <? endif; ?>
+            <?php endif; ?>
             <?php if(!comments_open() && get_comments_number() 
                 && post_type_supports(get_post_type(), 'comments')) : ?>
                 <p class="no-comments">
@@ -41,7 +52,7 @@
     </div>
     <?php if(comments_open()): ?>
         <div class="row">
-            <div id="comment_form" class="col-md-6 col-md-offset-3">
+            <div id="comment_form" class="col-lg-9 col-lg-offset-1 col-xs-12">
                 <?php
                     $comment_reply = __("Share your thoughts", 'my-secret-memory');
                     $comment_reply_to = __("Reply", 'my-secret-memory');

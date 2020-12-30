@@ -1,17 +1,20 @@
 /*
 Theme Name: My Secret Memory
+Theme URI: https://github.com/alicjusz23/secret-memory
 Author: alicjusz23
-Description: A short description of the theme.
-Version: 1.0
+Author URI: https://github.com/alicjusz23
+Description: A subtle WordPress template for blogging daydreamers and romantics. It presents all blog information on the main page, complying responsive design. Simple in structure, refined in styling to satisfy elaborated tastes.
 Requires at least: 4.9.6
-Requires PHP: 5.2.4
-Version: 1.7
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 5.4.0
+Version: 1.0
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tested up to: The last main WordPress version the theme has been tested up to, i.e. 5.4. Write only the number.
 Text Domain: my-secret-memory
 Tags: blog, news, two-columns, right-sidebar, featured-images, threaded-comments
+*
 */
+
  
 @import "compass";
 @import "compass/reset";
@@ -25,6 +28,8 @@ Tags: blog, news, two-columns, right-sidebar, featured-images, threaded-comments
 @import "layout/comments";
 @import "layout/post";
 @import "layout/loader-ellips";
+
+@import "wp-generated";
 
 @import "navigation";
 

@@ -21,50 +21,56 @@ get_header(); ?>
           <nav>
             <ul class="pager">
               <li><a id="previousPost">
-                <?php _e("Previous"); ?>
+                <?php _e("Previous", "my-secret-memory"); ?>
               </a></li>
               <li><a id="nextPost">
-                <?php _e("Next"); ?>
+                <?php _e("Next", "my-secret-memory"); ?>
               </a></li>
             </ul>
           </nav>
       </section>
 
       <!-- Posts by categories -->
-      <section id="categories-main">
-        <div>
-          <h2 class="sectionTitle">
-            <?php _e("Posts by popular categories", 'my-secret-memory'); ?>
-          </h2>
-          <div class="row">
-            <?php
-              $categories = array_slice(get_categories(array('orderby'=>'post__in')), 0, 3);
-              $i=0;
-              $class_array = ["first", "second", "third"];
-              foreach($categories as $t){
-                ?>
-                <div class="col-lg-4">
-                  <div class="panel panel-default">
-                    <a href="/category/<?php echo $t->slug; ?>">
-                    <div class="cat-panel">
-                      <div class="<?php echo $class_array[$i]?>"></div>
-                      
-                      <div class="cat-panel-text">
-                        <?php
-                          printf( '%s', $t->name );
-                        ?>
+      <?php 
+        if(count(get_categories(array('hide_empty'=> false)))>1):
+      ?>
+        <section id="categories-main">
+          <div>
+            <h2 class="sectionTitle">
+              <?php _e("Posts by popular categories", 'my-secret-memory'); ?>
+            </h2>
+            <div class="row">
+              <?php
+                $categories = array_slice(get_categories(array('hide_empty'=> false, 'orderby'=>'post__in')), 0, 3);
+                $i=0;
+                $class_array = ["first", "second", "third"];
+                foreach($categories as $t){
+                  ?>
+                  <div class="col-lg-4">
+                    <div class="panel panel-default">
+                      <a href="/category/<?php echo $t->slug; ?>">
+                      <div class="cat-panel">
+                        <div class="<?php echo $class_array[$i]?>"></div>
+                        
+                        <div class="cat-panel-text">
+                          <?php
+                            printf( '%s', $t->name );
+                          ?>
+                        </div>
                       </div>
+                      </a>  
                     </div>
-                    </a>  
                   </div>
-                </div>
-                <?php
-                $i++;
-              }
-            ?>
+                  <?php
+                  $i++;
+                }
+              ?>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      <?php
+        endif;
+      ?>
 
       <!-- recent comments -->
       <section id="recent-comments">
@@ -87,8 +93,6 @@ get_header(); ?>
                   $comm .= '<span class="span-larger-text">' . get_comment_author($comment->comment_ID) . '</span></a>';
                   //comment post
                   $comm .= ' on <a href="' . get_permalink($comment->comment_post_ID) . '">"' . get_the_title($comment->comment_post_ID) . '"</a>';
-                  //comment date
-                  // $comm .= '<span class="green-text"> &bull; ' . date_i18n(get_option('date_format'), get_comment_date('', $comment->comment_ID)) . '</span>';
                   //comment excerpt
                   $comm .= '<p>' . substr($comment->comment_content , 0, 60);
                   if(strlen($comment->comment_content)>60){

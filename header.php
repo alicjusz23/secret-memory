@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?> >
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,12 @@
     <meta name="author" content="alicjusz23">
 
     <!-- title displayed in the tab name -->
-    <title><?php wp_title(); echo " | "; echo bloginfo('name');?></title>
+    
+    <title><?php wp_title(' | ', true, 'right'); ?></title>
   <?php wp_head(); ?>
   </head>
-  <body>
+  <body <?php body_class(); ?> >
+    <?php wp_body_open(); ?>
 
     <!-- skip link to main content -->
     <div id="skip-div">
@@ -33,38 +35,27 @@
       <div class="overlayContent">
         <!-- ovelay menu content -->
         <nav class="blog-nav">
-          <a class="blog-nav-item" href="/">
-            <?php _e("Home", 'my-secret-memory'); ?>
-          </a>
-          <?php wp_list_pages( 
-              array(
-                'title_li' => '',
-                //show only 1st children of pages in the menu
-                'depth' => 2
-              )
-             ); ?>
+          <?php wp_nav_menu( array( 'theme_location' => 'primary-menu' ) ); ?>
         </nav>
       </div>
     </div>
 
 
-      <div class="blog-masthead">
+      <div class="blog-masthead" style="background-image: url(<?php header_image(); ?>);">
         <nav class="navbar myNavbar">
-          <!-- <div class="container-fluid"> -->
-            <div class="navbar-header">
-              <!-- hamburger menu button -->
-              <button type="button" id="menuButton">
-                <div class="icon-bar1"></div>
-                <div class="icon-bar2"></div>
-                <div class="icon-bar3"></div> 
-              </button>
-            </div>
-          <!-- </div> -->
+          <div class="navbar-header">
+            <!-- hamburger menu button -->
+            <button type="button" id="menuButton">
+              <div class="icon-bar1"></div>
+              <div class="icon-bar2"></div>
+              <div class="icon-bar3"></div> 
+            </button>
+          </div>
         </nav>
         <!-- blog header with blog name and description -->
         <div class="container blog-header-all">
           <div class="blog-header">
-            <h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>">
+            <h1 class="blog-title"><a href="<?php echo esc_url( home_url() );?>">
               <?php echo get_bloginfo( 'name' ); ?>
             </a></h1>
             <p class="blog-description"><?php echo get_bloginfo( 'description' ); ?></p>

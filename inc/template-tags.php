@@ -21,7 +21,7 @@ if (!function_exists('mysecretmemory_post_pagination_scroller')) :
                 <span class="loader-ellips__dot"></span>
             </div> 
         </div> 
-        <?
+        <?php
     }
 endif;
 
