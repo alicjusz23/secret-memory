@@ -1,13 +1,13 @@
 <?php
     // Add scripts and stylesheets
     function mysecretmemory_scripts() {
+        wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/js/jquery-2.2.4.min.js', array(), '2.2.4' );
         wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-        // wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
         wp_enqueue_style('style', get_template_directory_uri() . '/style.css' );
-        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
-        wp_enqueue_script('navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), false, true);
+        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jQuery'), '3.3.6', true);
+        wp_enqueue_script('navigation', get_template_directory_uri() . '/js/navigation.js', array('jQuery'), false, true);
 
-        wp_enqueue_script('lazy', get_template_directory_uri() . '/js/infinite-scroll.pkgd.min.js', array('jquery'), false, true);
+        wp_enqueue_script('lazy', get_template_directory_uri() . '/js/infinite-scroll.pkgd.min.js', array('jQuery'), false, true);
 
     }
 
@@ -68,6 +68,11 @@
        }
     add_action( 'init', 'mysecretmemory_register_menu' );
 
+    // post formats
+    // function mysecretmemory_post_formats_setup() {
+    //     add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'link', 'status', 'quote') );
+    //    }
+    // add_action( 'after_setup_theme', 'mysecretmemory_post_formats_setup' );
 
 
     function mysecretmemory_settings_add_menu(){
@@ -92,22 +97,22 @@
 
     //Twitter
     function setting_twitter(){?>
-        <input type="text" name="twitter" id="twitter" value="<?php echo get_option('twitter'); ?>">
+        <input type="url" name="twitter" id="twitter" value="<?php echo get_option('twitter'); ?>">
     <?php 
     }
     //Facebook
     function setting_facebook() { ?>
-        <input type="text" name="facebook" id="facebook" value="<?php echo get_option('facebook'); ?>" />
+        <input type="url" name="facebook" id="facebook" value="<?php echo get_option('facebook'); ?>" />
     <?php 
     }
     //Instagram
     function setting_instagram() { ?>
-        <input type="text" name="instagram" id="instagram" value="<?php echo get_option('instagram'); ?>" />
+        <input type="url" name="instagram" id="instagram" value="<?php echo get_option('instagram'); ?>" />
     <?php 
     }
     //Pinterest
     function setting_pinterest() { ?>
-        <input type="text" name="pinterest" id="pinterest" value="<?php echo get_option('pinterest'); ?>" />
+        <input type="url" name="pinterest" id="pinterest" value="<?php echo get_option('pinterest'); ?>" />
     <?php 
     }
 
@@ -183,9 +188,8 @@
     function get_previous_posts() {
         ob_start();
         global $post;
-        $oldGlobal = $post;
         $current_post = $_POST['post'];
-        $post = get_page_by_title($current_post, OBJECT, 'post');
+        $post = get_post($current_post);
         $post = get_previous_post();
         get_template_part('template-parts/content', 'main');
         $html .= ob_get_contents();
@@ -197,7 +201,7 @@
         }       
         ob_end_clean(); 
         header('Content-type: application/json');
-        echo json_encode(array("next"=>$next, "prev"=>$prev, "html"=>$html));
+        echo json_encode(array("next"=>$next, "prev"=>$prev, "sticky" => if_public_sticky_posts(), "html"=>$html));
         exit;
     }
     add_action('wp_ajax_get_previous_posts', 'get_previous_posts');
@@ -207,9 +211,8 @@
     function get_next_posts() {
         ob_start();
         global $post;
-        $oldGlobal = $post;
         $current_post = $_POST['post'];
-        $post = get_page_by_title($current_post, OBJECT, 'post');
+        $post = get_post($current_post);
         $post = get_next_post();
         get_template_part('template-parts/content', 'main');
         $html .= ob_get_contents();
@@ -218,14 +221,57 @@
         }
         if(get_next_post()){
             $next=1;
-        }       
+        }      
         ob_end_clean(); 
         header('Content-type: application/json');
-        echo json_encode(array("next"=>$next, "prev"=>$prev, "html"=>$html));
+        echo json_encode(array("next"=>$next, "prev"=>$prev, "sticky" => if_public_sticky_posts(), "html"=>$html));
         exit;
     }
     add_action('wp_ajax_get_next_posts', 'get_next_posts');
     add_action('wp_ajax_nopriv_get_next_posts', 'get_next_posts');
+
+
+    function get_sticky_posts() {
+        ob_start();
+        $sticky = get_option('sticky_posts');
+        $args = array(
+            'post__in'  => $sticky, //are they sticky post
+            'post_status' => 'publish',
+            'order' => 'DESC',
+            'orderby' => 'date',
+            'post_count' => 1
+        );
+        $html = "";
+        $ajaxposts = new WP_Query($args); 
+        if($ajaxposts->have_posts()){
+                $ajaxposts->the_post();
+                $html .= get_template_part('template-parts/content', 'main');
+                $html .= ob_get_contents();
+            ob_end_clean();
+            header('Content-type: application/json');
+            echo json_encode(array("status" => 1, "prevText"=> __('Previous', 'my-secret-memory'), "html"=>$html));
+        }else {
+            header('Content-type: application/json');
+            echo json_encode(array("status" => 0));
+        }
+        exit;
+    }
+    add_action('wp_ajax_get_sticky_posts', 'get_sticky_posts');
+    add_action('wp_ajax_nopriv_get_sticky_posts', 'get_sticky_posts');
+
+
+    function if_public_sticky_posts(){
+        $sticky = get_option('sticky_posts');
+        $args = array(
+            'post__in'  => $sticky, //are they sticky post
+            'post_status' => 'publish'
+        );
+        $sticky_pub_posts = new WP_Query($args); 
+        if($sticky_pub_posts->have_posts())
+            return 1;
+        else    
+            return 0;
+    }
 
 
     function get_ajax_posts() {
@@ -238,21 +284,24 @@
         $html = "";
         $ajaxposts = new WP_Query($args); 
         if($ajaxposts->have_posts()){
-            while($ajaxposts->have_posts()){
-                $ajaxposts->the_post();
+            // wp-5.4.4
+            // while($ajaxposts->have_posts()){
+
+                $post=$ajaxposts->the_post();
+                // setup_postdata($post);
                 $html .= get_template_part('template-parts/content', 'main');
                 $html .= ob_get_contents();
+                
                 if(get_previous_post()){
                     $prev=1;
                 }
                 if(get_next_post()){
                     $next=1;
                 }
-            }
         }
         ob_end_clean();
         header('Content-type: application/json');
-        echo json_encode(array("next"=>$next, "prev"=>$prev, "html"=>$html));
+        echo json_encode(array("next"=>$next, "prev"=>$prev, "sticky" => if_public_sticky_posts(), "html"=>$html));
         exit;
     }
     add_action('wp_ajax_get_ajax_posts', 'get_ajax_posts');
@@ -260,7 +309,7 @@
     
 
     function load_post_scripts(){
-        wp_register_script('post', get_template_directory_uri() . '/js/post.js', array('jquery'));
+        wp_register_script('post', get_template_directory_uri() . '/js/post.js', array('jQuery'));
         wp_localize_script('post', 'post_ajax', array('ajaxurl' => admin_url('admin-ajax.php')));
         wp_enqueue_script('post');
     }
@@ -269,4 +318,14 @@
 
 
     require get_template_directory() . '/inc/template-tags.php';
+
+
+    // function wpd_do_stuff_on_404(){
+    //     if( is_404() ){
+    //         wp_redirect( './404.php' );
+    //         exit;
+    //     }
+    // }
+    // add_action( 'template_redirect', 'wpd_do_stuff_on_404' );
+
 ?>

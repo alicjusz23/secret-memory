@@ -20,42 +20,96 @@ jQuery(document).ready(function(){
         jQuery('#check').removeClass('check-focus');
     });
 
-    jQuery.ajax({
-        type: 'POST',
-        url: post_ajax.ajaxurl,
-        data: {action : 'get_ajax_posts'},
-        success: function(results) {    
-                jQuery('#new-posts').html(results.html);
-                if(!results.prev){
-                    jQuery('#previousPost').hide();
-                };
-                if(!results.next){
-                    jQuery('#nextPost').hide();
+
+    ajaxStickyPost();
+
+    function ajaxStickyPost(){
+        jQuery.ajax({
+            type: 'POST',
+            url: post_ajax.ajaxurl,
+            data: {action : 'get_sticky_posts'},
+            success: function(results) {
+                if(results.status===1){    
+                    jQuery('#new-posts').html(results.html);
+                    jQuery('#pager-sticky').html(`
+                    <nav>
+                        <ul class="pager">
+                        <li><a id="previousStickyPost">
+                            ` + results.prevText + `
+                        </a></li>
+                        </ul>
+                    </nav>
+                    `);
+                    jQuery('#pager-sticky').show();
+                    jQuery('#pager-main').hide();
+                    jQuery('#previousStickyPost').click(function(){
+                        ajaxPost();
+                    });
+                } else {
+                    ajaxPost();
                 }
-        }
-        // ,
-        // error: function(xhr, text, error){
-        //     alert("Error: " + error);
-        // }   
-    });
+            }
+        });
+    }
+
+
+    function ajaxPost(){
+        jQuery.ajax({
+            type: 'POST',
+            url: post_ajax.ajaxurl,
+            data: {action : 'get_ajax_posts'},
+            success: function(results) {    
+                jQuery('#pager-sticky').hide();
+                jQuery('#pager-main').show();
+                jQuery('#new-posts').html(results.html);
+                if(results.prev===null){
+                    jQuery('#previousPost').hide();
+                }else {
+                    jQuery('#previousPost').show();
+                }
+                if(results.next===null){
+                    jQuery('#nextPost').hide();
+                    if(results.sticky){
+                        jQuery('#nextToSticky').css('display', 'inline-block');
+                        jQuery('#nextToSticky').click(function() {
+                            ajaxStickyPost();
+                        });
+                    }else {
+                        jQuery('#nextToSticky').hide();
+                    }
+                } else {
+                    jQuery('#nextPost').show();
+                }
+            } 
+        });
+    }
+
+
+
 
     jQuery('#nextPost').click(function(){
         jQuery.ajax({
             type: 'POST',
             url: post_ajax.ajaxurl,
             data: { action : 'get_next_posts',
-                post: jQuery('.aBlogTitle').text().trim()},
+                    post: jQuery('article.blog-post-main').attr('class').split(/\s+/)[1].slice(5)},
             success: function(results) {    
                 jQuery('#new-posts').html(results.html);
-                if(!results.prev){
+                if(results.prev===null){
                     jQuery('#previousPost').hide();
                 }else {
                     jQuery('#previousPost').show();
                 }
-                if(!results.next){
+                if(results.next===null){
                     jQuery('#nextPost').hide();
+                    if(results.sticky)
+                        jQuery('#nextToSticky').css('display', 'inline-block');
+                    else {
+                        jQuery('#nextToSticky').hide();
+                    }
                 } else {
                     jQuery('#nextPost').show();
+                    jQuery('#nextToSticky').hide();
                 }
             }
             // ,
@@ -70,18 +124,24 @@ jQuery(document).ready(function(){
             type: 'POST',
             url: post_ajax.ajaxurl,
             data: { action : 'get_previous_posts',
-                post: jQuery('.aBlogTitle').text().trim()},
+                post: jQuery('article.blog-post-main').attr('class').split(/\s+/)[1].slice(5)},
             success: function(results) {    
                 jQuery('#new-posts').html(results.html);
-                if(!results.prev){
+                if(results.prev===null){
                     jQuery('#previousPost').hide();
                 }else {
                     jQuery('#previousPost').show();
                 }
-                if(!results.next){
+                if(results.next===null){
                     jQuery('#nextPost').hide();
+                    if(results.sticky)
+                        jQuery('#nextToSticky').css('display', 'inline-block');
+                    else {
+                        jQuery('#nextToSticky').hide();
+                    }
                 } else {
                     jQuery('#nextPost').show();
+                    jQuery('#nextToSticky').hide();
                 }
             }
             // ,

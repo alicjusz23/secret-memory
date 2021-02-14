@@ -16,14 +16,20 @@ get_header(); ?>
           <?php _e("New on the blog", 'my-secret-memory'); ?>
         </h2>
         <div>
-          <p id="new-posts"></p>
+          <p id="new-posts">
+            <!-- post excerpt is showing here -->
+          </p>
+          <div id="pager-sticky"></div>
         </div>
           <nav>
-            <ul class="pager">
+            <ul class="pager" id="pager-main">
               <li><a id="previousPost">
                 <?php _e("Previous", "my-secret-memory"); ?>
               </a></li>
               <li><a id="nextPost">
+                <?php _e("Next", "my-secret-memory"); ?>
+              </a></li>
+              <li><a id="nextToSticky">
                 <?php _e("Next", "my-secret-memory"); ?>
               </a></li>
             </ul>
@@ -32,7 +38,7 @@ get_header(); ?>
 
       <!-- Posts by categories -->
       <?php 
-        if(count(get_categories(array('hide_empty'=> false)))>1):
+        if(count(get_categories(array('hide_empty'=> false)))>0):
       ?>
         <section id="categories-main">
           <div>
@@ -41,12 +47,13 @@ get_header(); ?>
             </h2>
             <div class="row">
               <?php
-                $categories = array_slice(get_categories(array('hide_empty'=> false, 'orderby'=>'post__in')), 0, 3);
+                $categories = array_slice(get_categories(array('hide_empty'=> false, 'orderby'=>'count', 'order'=>'DESC')), 0, 3);
+                $class_col = 12 / count($categories);
                 $i=0;
                 $class_array = ["first", "second", "third"];
                 foreach($categories as $t){
                   ?>
-                  <div class="col-lg-4">
+                  <div class="col-lg-<?php echo $class_col;?>">
                     <div class="panel panel-default">
                       <a href="/category/<?php echo $t->slug; ?>">
                       <div class="cat-panel">
@@ -92,7 +99,7 @@ get_header(); ?>
                   //comment author
                   $comm .= '<span class="span-larger-text">' . get_comment_author($comment->comment_ID) . '</span></a>';
                   //comment post
-                  $comm .= ' on <a href="' . get_permalink($comment->comment_post_ID) . '">"' . get_the_title($comment->comment_post_ID) . '"</a>';
+                  $comm .= ' on <a href="' . get_permalink($comment->comment_post_ID) . '" class="post-title-break">"' . get_the_title($comment->comment_post_ID) . '"</a>';
                   //comment excerpt
                   $comm .= '<p>' . substr($comment->comment_content , 0, 60);
                   if(strlen($comment->comment_content)>60){

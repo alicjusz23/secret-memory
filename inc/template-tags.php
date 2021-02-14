@@ -42,7 +42,8 @@ if (!function_exists('mysecretmemory_excerpt_post_query_array')) :
         $args = array(
             'post_type'=> 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 3,
+            // in Settings > Reading
+            // 'posts_per_page' => 3,
             'paged' => $paged
         );
 

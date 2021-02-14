@@ -1,8 +1,4 @@
 jQuery(document).ready(function(){
-    
-    // jQuery('body').focusin(function(){
-    //     console.log(jQuery(':focus').toArray());
-    // });
 
 /***** Menu ********/
     jQuery("#menuButton").click(function(){
@@ -30,7 +26,6 @@ jQuery(document).ready(function(){
     var tIn;
     jQuery('.menu-item-has-children').hover(
         function(){
-            // clearTimeout(tOut);
             var inObj = jQuery(this);
             tIn = setTimeout(function(){
                 inObj.children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
@@ -43,7 +38,7 @@ jQuery(document).ready(function(){
 
     jQuery('li.menu-item-has-children > a').focusin(
         function(){
-            if(jQuery(this).parent().children('.sub-menu').first().css('opacity')==='0'){
+            if(jQuery(this).parent(':focus-within').length){
                 jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
             }
         }
@@ -51,10 +46,7 @@ jQuery(document).ready(function(){
 
     jQuery('li.menu-item-has-children > a').focusout(
         function(){
-            // console.log(jQuery(this).parent(':focus-within').toArray());
-            // if(jQuery(this).parent().find('.sub-menu').css('opacity')==='1' && !jQuery(this).parent().find('.sub-menu').is(':focus')){
             if(!jQuery(this).parent(':focus-within').length){
-                // console.log(this);
                 jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"0", "height": "toggle"}, 400);
             }
         }
@@ -62,7 +54,6 @@ jQuery(document).ready(function(){
 
     jQuery('.sub-menu > li > a').focusout(
         function(){
-            // console.log(jQuery(this).parents().eq(1).parent(':focus-within').length);
             if(!jQuery(this).parents().eq(1).parent(':focus-within').length){
                 jQuery(this).parents().eq(1).animate({"opacity":"0", "height": "toggle"}, 400);
             }
