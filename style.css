@@ -649,6 +649,12 @@ ol.is-grid li {
 .page_anc {
   font-style: italic; }
 
+/* line 585, sass/layout/_layout.scss */
+.wp-block-image .aligncenter > figcaption,
+.wp-block-image .alignleft > figcaption,
+.wp-block-image .alignright > figcaption {
+  display: inherit; }
+
 /* line 3, sass/layout/_comments.scss */
 .comment-respond {
   background-color: #E8D7BF;
@@ -1261,6 +1267,22 @@ form.post-password-form {
 .wp-block-button.is-style-outline a:hover, .wp-block-button.is-style-outline a:focus {
   color: #645E54;
   border-color: #645E54; }
+
+/* line 385, sass/layout/_post.scss */
+.wp-block-button.is-style-squared .wp-block-button__link {
+  border-radius: 1px; }
+
+/* line 390, sass/layout/_post.scss */
+.wp-block-cover p:not(.has-text-color) {
+  color: white; }
+  /* line 392, sass/layout/_post.scss */
+  .wp-block-cover p:not(.has-text-color) a {
+    color: white !important; }
+
+/* line 397, sass/layout/_post.scss */
+.twitter-tweet-rendered {
+  position: relative;
+  overflow-x: auto; }
 
 /*
 * By Infinite scroll

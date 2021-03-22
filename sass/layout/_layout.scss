@@ -580,3 +580,10 @@ ol.is-grid {
 .page_anc {
     font-style: italic;
 }
+
+
+.wp-block-image .aligncenter>figcaption, 
+.wp-block-image .alignleft>figcaption, 
+.wp-block-image .alignright>figcaption {
+    display: inherit;
+}

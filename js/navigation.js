@@ -28,7 +28,7 @@ jQuery(document).ready(function(){
         function(){
             var inObj = jQuery(this);
             tIn = setTimeout(function(){
-                inObj.children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
+                inObj.children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 1000);
             }, 400, inObj);
         }, 
         function(){
@@ -39,7 +39,7 @@ jQuery(document).ready(function(){
     jQuery('li.menu-item-has-children > a').focusin(
         function(){
             if(jQuery(this).parent(':focus-within').length){
-                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 400);
+                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"1", "height": "toggle"}, 1000);
             }
         }
     );
@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
     jQuery('li.menu-item-has-children > a').focusout(
         function(){
             if(!jQuery(this).parent(':focus-within').length){
-                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"0", "height": "toggle"}, 400);
+                jQuery(this).parent().children('.sub-menu').first().animate({"opacity":"0", "height": "toggle"}, 1000);
             }
         }
     );
@@ -55,7 +55,7 @@ jQuery(document).ready(function(){
     jQuery('.sub-menu > li > a').focusout(
         function(){
             if(!jQuery(this).parents().eq(1).parent(':focus-within').length){
-                jQuery(this).parents().eq(1).animate({"opacity":"0", "height": "toggle"}, 400);
+                jQuery(this).parents().eq(1).animate({"opacity":"0", "height": "toggle"}, 1000);
             }
         }
     );
